@@ -10,7 +10,7 @@
     <div class="background-slideshow">
         <div class="slide active" style="background-image: url(images/fudziyama.jpeg)"></div>
         <div class="slide" style="background-image: url(images/losangeles.jpg)"></div>
-        <div class="slide" style="background-image: url(images/Moskow3.jpg)"></div>
+        <div class="slide" style="background-image: url(images/honkongback.jpg)"></div>
     </div>
 
     <nav class="navbar">
@@ -19,9 +19,30 @@
             <a href="#" class="active">Главная</a>
             <a href="#">Билеты</a>
             <a href="#">О нас</a>
-            <a href="#" ><img class="login-img" src="svg/login.svg" alt="Login"></a>
+            <button class="login-button" id="loginButton"><img class="login-img" src="svg/login.svg" alt="Login"></button>
         </div>
     </nav>
+
+    <div class="login-modal" id="loginModal">
+        <div class="login-form">
+            <h2>Вход</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <input type="text" id="firstName" placeholder="Имя" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="lastName" placeholder="Фамилия" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="email" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="password" placeholder="Пароль" required>
+                </div>
+                <button type="submit" class="submit-button">Войти</button>
+            </form>
+        </div>
+    </div>
 
     <main>
         <div class="search-container">

@@ -1,17 +1,33 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const searchForm = document.querySelector('.search-form');
-    const departureInput = document.getElementById('departure');
-    const arrivalInput = document.getElementById('arrival');
+    // Login modal functionality
+    const loginButton = document.getElementById('loginButton');
+    const loginModal = document.getElementById('loginModal');
+    const loginForm = document.getElementById('loginForm');
 
-    searchForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const departure = departureInput.value.trim();
-        const arrival = arrivalInput.value.trim();
-        
-        if (departure && arrival) {
-            console.log(`Searching flights from ${departure} to ${arrival}`);
-        }
-    });
+    if (loginButton && loginModal && loginForm) {
+        loginButton.addEventListener('click', () => {
+            loginModal.classList.add('active');
+        });
+
+        loginModal.addEventListener('click', (e) => {
+            if (e.target === loginModal) {
+                loginModal.classList.remove('active');
+            }
+        });
+
+        loginForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const firstName = document.getElementById('firstName').value;
+            const lastName = document.getElementById('lastName').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            console.log('Login attempt:', { firstName, lastName, email, password });
+            
+            loginModal.classList.remove('active');
+            loginForm.reset();
+        });
+    }
 
     const slides = document.querySelectorAll('.slide');
     const dots = document.querySelectorAll('.dot');
@@ -19,8 +35,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const slideInterval = 5000;
 
     function updateSlides(nextSlide) {
-        slides[currentSlide].classList.remove('active');
-        slides[currentSlide].classList.add('previous');
 
         currentSlide = nextSlide;
         slides[currentSlide].classList.remove('previous');
@@ -46,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function updateCardSets(nextSet) {
         cardSets[currentCardSet].classList.remove('active');
-        cardSets[currentCardSet].classList.add('previous');
+
         dots[currentCardSet].classList.remove('active');
 
         currentCardSet = nextSet;
