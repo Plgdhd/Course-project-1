@@ -61,8 +61,8 @@ body {
     backdrop-filter: blur(10px);
     border-radius: 52px;
     margin-bottom: 52px;
-    width: 100%;
-    max-width: 1200px;
+    width: 90%;
+    max-width: 1300px;
 }
 
 .logo {
@@ -86,11 +86,12 @@ body {
     color: #FFF;
     text-decoration: none;
     font-size: 23px;
+    
     font-weight: 500;
 }
 
-.nav-links:hover{
-    font-style: underline;
+.nav-links a:hover{
+    text-decoration: underline;
 }
 .nav-links a.active {
     font-weight: 700;
@@ -100,7 +101,6 @@ body {
 main {
     display: flex;
     flex-direction: column;
-    align-items: center;
     flex: 1;
     min-height: calc(100vh - 100px);
     padding-bottom: 80px;
@@ -108,67 +108,92 @@ main {
     max-width: 1200px;
     margin: 0 auto;
 }
-
 .search-container {
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-.search-form {
-    background: rgba(255, 255, 255, 0.3);
-    backdrop-filter: blur(10px);
-    border-radius: 30px;
-    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    position: relative;
+    top: 100px;
+    left: right ;
+    background: white;
+    opacity: 0.5;
+    padding: 20px;
+    border-radius: 50px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .search-box {
     display: flex;
     align-items: center;
-    margin-bottom: 10px;
-}
-
-.search-inputs {
-    flex: 1;
+    width: 100%;
+  }
+  
+  .input-group {
     display: flex;
-    gap: 20px;
-}
-
-.search-inputs input {
-    flex: 1;
-    padding: 15px 20px;
-    border: none;
-    background: transparent;
-    color: #FFF;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+  
+  .input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
     font-size: 16px;
-}
-
-.search-inputs input::placeholder {
-    color: rgba(255, 255, 255, 0.8);
-}
-
-.search-btn {
-    background: transparent;
     border: none;
+  }
+  
+  .input-group input:focus {
+    outline: none;
+    border-color: #4a90e2;
+  }
+  
+  .suggestions {
+    position: relative;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 0 0 4px 4px;
+    max-height: 200px;
+    overflow-y: auto;
+    display: none;
+    z-index: 100;
+  }
+  
+  .suggestions div {
     padding: 10px;
     cursor: pointer;
-}
-
-.search-btn img {
-    width: 24px;
-    height: 24px;
-}
-
-.search-subtitle {
-    color: #FFF;
-    font-size: 18px;
-    margin-top: 10px;
-}
-
+  }
+  
+  .suggestions div:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .search-button {
+    width: 40px;
+    height: 40px;
+    background: none;
+    border: none;
+    border-radius: 50%;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    flex-shrink: 0; 
+  }
+  
+  .search-button:hover {
+    background: #3367d6;
+    transform: scale(1.05);
+    color: white;
+  }
 .destinations {
     display: flex;
     justify-content: center;
-    gap: 30px;
     padding: 0 20px;
-    margin-top: 270px;
-    margin-bottom: 60px;
+    margin-top: 350px;
+    margin-bottom: 40px;
     position: relative;
     width: 100%;
 }
@@ -176,7 +201,7 @@ main {
 .card-set {
     display: flex;
     justify-content: center;
-    gap: 30px;
+    gap: 90px;
     position: absolute;
     top: 0;
     left: 50%;
@@ -198,8 +223,8 @@ main {
 }
 
 .destination-card {
-    width: 380px;
-    height: 250px;
+    width: 500px;
+    height: 270px;
     border-radius: 25px;
     color: #FFF;
     position: relative;
