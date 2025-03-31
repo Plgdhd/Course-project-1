@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Login modal functionality
     const loginButton = document.getElementById('loginButton');
     const loginModal = document.getElementById('loginModal');
     const loginForm = document.getElementById('loginForm');
@@ -35,7 +34,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const slideInterval = 10000;
 
     function updateSlides(nextSlide) {
-        // Сначала активируем новый слайд
         slides[nextSlide].classList.add('active');
         slides[nextSlide].classList.remove('previous');
         
