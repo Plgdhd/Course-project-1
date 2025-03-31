@@ -4,24 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Личный кабинет - BELINES</title>
-    <link rel="stylesheet" href="/styles/main.css">
-    <link rel="stylesheet" href="/styles/profile.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/profile.css">
 </head>
 <body>
     <div class="background-slideshow">
-        <div class="slide active" style="background-image: url(/images/fudziyama.jpeg)"></div>
-        <div class="slide" style="background-image: url(/images/losangeles.jpg)"></div>
-        <div class="slide" style="background-image: url(/images/honkongback.jpg)"></div>
+        <div class="slide active" style="background-image: url(../images/fudziyama.jpeg)"></div>
+        <div class="slide" style="background-image: url(../images/losangeles.jpg)"></div>
+        <div class="slide" style="background-image: url(../images/honkongback.jpg)"></div>
     </div>
 
     <nav class="navbar">
         <div class="logo">BELINES.</div>
+        <div class="menu-toggle" id="menuToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
         <div class="nav-links">
-            <a href="main.html">Главная</a>
-            <a href="#">Билеты</a>
-            <a href="#">О нас</a>
-            <a href="#">Контакты</a>
-            <a href="profile.html" class="active">Личный кабинет</a>
+            <a href="../html/main.html">Главная</a>
+            <a href="../html/tickets.html">Билеты</a>
+            <a href="../html/about.html">О нас</a>
+            <a href="../html/profile.html" class="active">Личный кабинет</a>
         </div>
     </nav>
 
@@ -29,7 +33,7 @@
         <div class="profile-container">
             <div class="profile-header">
                 <div class="profile-avatar">
-                    <img src="/images/default-avatar.png" alt="Аватар пользователя">
+                    <img src="../images/default-avatar.png" alt="Аватар пользователя">
                 </div>
                 <h1>Иван Иванов</h1>
                 <p class="user-email">ivan@example.com</p>
@@ -88,7 +92,7 @@
         </div>
     </main>
 
-    <script src="/scripts/main.js"></script>
-    <script src="/scripts/profile.js"></script>
+    <script src="../scripts/main.js"></script>
+    <script src="../scripts/profile.js"></script>
 </body>
 </html> 

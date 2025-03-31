@@ -54,22 +54,24 @@ document.addEventListener('DOMContentLoaded', () => {
     const cardSetInterval = 10000;
 
     function updateCardSets(nextSet) {
+        // Скрываем текущий набор карточек
         cardSets[currentCardSet].classList.remove('active');
-
         dots[currentCardSet].classList.remove('active');
 
         currentCardSet = nextSet;
-        cardSets[currentCardSet].classList.remove('previous');
+        
+        // Показываем новый набор карточек
         cardSets[currentCardSet].classList.add('active');
         dots[currentCardSet].classList.add('active');
 
-        setTimeout(() => {
-            cardSets.forEach(set => {
-                if (set !== cardSets[currentCardSet]) {
-                    set.classList.remove('previous');
-                }
+        // Прокручиваем к началу набора карточек
+        if (window.innerWidth <= 768) {
+            const destinations = document.querySelector('.destinations');
+            destinations.scrollTo({
+                top: 0,
+                behavior: 'smooth'
             });
-        }, 1600);
+        }
     }
 
     function nextCardSet() {
@@ -91,26 +93,55 @@ document.addEventListener('DOMContentLoaded', () => {
     let touchStartX = 0;
     let touchEndX = 0;
 
+    // Добавляем обработку свайпов для карточек на мобильных устройствах
+    let touchStartY = 0;
+    let touchEndY = 0;
+
     document.addEventListener('touchstart', (e) => {
         touchStartX = e.changedTouches[0].screenX;
+        touchStartY = e.changedTouches[0].screenY;
     });
 
     document.addEventListener('touchend', (e) => {
         touchEndX = e.changedTouches[0].screenX;
+        touchEndY = e.changedTouches[0].screenY;
         handleSwipe();
     });
 
     function handleSwipe() {
         const swipeThreshold = 50;
-        const diff = touchStartX - touchEndX;
+        const diffX = touchStartX - touchEndX;
+        const diffY = touchStartY - touchEndY;
 
-        if (Math.abs(diff) > swipeThreshold) {
-            if (diff > 0) {
-                nextSlide();
-            } else {
-                const prev = (currentSlide - 1 + slides.length) % slides.length;
-                updateSlides(prev);
+        // Проверяем, что свайп больше по горизонтали, чем по вертикали
+        if (Math.abs(diffX) > Math.abs(diffY)) {
+            if (Math.abs(diffX) > swipeThreshold) {
+                if (diffX > 0) {
+                    nextSlide();
+                } else {
+                    const prev = (currentSlide - 1 + slides.length) % slides.length;
+                    updateSlides(prev);
+                }
             }
         }
+    }
+
+    // Мобильное меню
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.querySelector('.nav-links');
+    
+    if (menuToggle && navLinks) {
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            menuToggle.classList.toggle('active');
+        });
+
+        // Закрываем меню при клике на ссылку
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                menuToggle.classList.remove('active');
+            });
+        });
     }
 }); 
