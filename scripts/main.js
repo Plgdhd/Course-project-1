@@ -32,24 +32,22 @@ document.addEventListener('DOMContentLoaded', () => {
     const slides = document.querySelectorAll('.slide');
     const dots = document.querySelectorAll('.dot');
     let currentSlide = 0;
-    const slideInterval = 1000;
-
+    const slideInterval = 10000;
 
     function updateSlides(nextSlide) {
-        slides[currentSlide].classList.remove('previous');
-        slides[currentSlide].classList.add('active');
+        // Сначала активируем новый слайд
+        slides[nextSlide].classList.add('active');
+        slides[nextSlide].classList.remove('previous');
+        
+        // Затем анимируем текущий слайд влево
+        slides[currentSlide].classList.add('previous');
+        slides[currentSlide].classList.remove('active');
+        
         currentSlide = nextSlide;
-        setTimeout(() => {
-            slides.forEach(slide => {
-                if (slide !== slides[currentSlide]) {
-                    slide.classList.remove('previous');
-                }
-            });
-        }, 800);
     }
 
     function nextSlide() {
-        next = (currentSlide + 1) % slides.length;
+        const next = (currentSlide + 1) % slides.length;
         updateSlides(next);
     }
 
