@@ -32,14 +32,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const slides = document.querySelectorAll('.slide');
     const dots = document.querySelectorAll('.dot');
     let currentSlide = 0;
-    const slideInterval = 5000;
+    const slideInterval = 1000;
+
 
     function updateSlides(nextSlide) {
-
-        currentSlide = nextSlide;
         slides[currentSlide].classList.remove('previous');
         slides[currentSlide].classList.add('active');
-
+        currentSlide = nextSlide;
         setTimeout(() => {
             slides.forEach(slide => {
                 if (slide !== slides[currentSlide]) {
@@ -50,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function nextSlide() {
-        const next = (currentSlide + 1) % slides.length;
+        next = (currentSlide + 1) % slides.length;
         updateSlides(next);
     }
 
