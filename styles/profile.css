@@ -1,266 +1,321 @@
-body{
-    background-image: url(../images/fudziyama.jpeg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    min-height: 100vh;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-    overflow-y: scroll;
+body {
+  background-image: url(../images/fudziyama.jpeg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  min-height: 100vh;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  overflow-y: scroll;
 }
+
 .profile-container {
-    max-width: 800px;
-    margin: 40px auto;
-    padding: 30px;
-    background: rgba(255, 255, 255, 0.3);
-    backdrop-filter: blur(10px);
-    border-radius: 20px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.3);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 .profile-header {
-    text-align: center;
-    margin-bottom: 40px;
+  text-align: center;
+  margin-bottom: 40px;
 }
-
-.profile-avatar {
-    width: 150px;
-    height: 150px;
-    margin: 0 auto 20px;
-    border-radius: 50%;
-    overflow: hidden;
-    border: 4px solid rgba(255, 255, 255, 0.5);
+.profile-header .profile-avatar {
+  width: 150px;
+  height: 150px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid rgba(255, 255, 255, 0.5);
 }
-
-.profile-avatar img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.profile-header .profile-avatar img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
-
 .profile-header h1 {
-    color: #FFF;
-    font-size: 32px;
-    margin-bottom: 10px;
+  color: #FFF;
+  font-size: 32px;
+  margin-bottom: 10px;
 }
-
-.user-email {
-    color: rgba(255, 255, 255, 0.8);
-    font-size: 18px;
+.profile-header .user-email {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 18px;
 }
 
 .profile-section {
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 15px;
-    padding: 25px;
-    margin-bottom: 30px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+  padding: 25px;
+  margin-bottom: 30px;
 }
-
 .profile-section h2 {
-    color: #FFF;
-    font-size: 24px;
-    margin-bottom: 20px;
+  color: #FFF;
+  font-size: 24px;
+  margin-bottom: 20px;
 }
 
 .tickets-list {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
-
-.ticket-card {
-    background: rgba(255, 255, 255, 0.3);
-    border-radius: 12px;
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    transition: transform 0.3s ease;
+.tickets-list .ticket-card {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: transform 0.3s ease;
 }
-
-.ticket-card:hover {
-    transform: translateY(-5px);
+.tickets-list .ticket-card:hover {
+  transform: translateY(-5px);
 }
-
-.ticket-info h3 {
-    color: #FFF;
-    font-size: 20px;
-    margin-bottom: 10px;
+.tickets-list .ticket-card .ticket-info h3 {
+  color: #FFF;
+  font-size: 20px;
+  margin-bottom: 10px;
 }
-
-.ticket-info p {
-    color: rgba(255, 255, 255, 0.8);
-    margin: 5px 0;
+.tickets-list .ticket-card .ticket-info p {
+  color: rgba(255, 255, 255, 0.8);
+  margin: 5px 0;
 }
-
-.ticket-price {
-    font-size: 24px;
-    font-weight: bold;
-    color: #FFF;
+.tickets-list .ticket-card .ticket-price {
+  font-size: 24px;
+  font-weight: bold;
+  color: #FFF;
 }
 
 .profile-settings {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
-
 .profile-settings .form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
-
-.profile-settings label {
-    color: #FFF;
-    font-size: 16px;
+.profile-settings .form-group label {
+  color: #FFF;
+  font-size: 16px;
 }
-
-.profile-settings input {
-    padding: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 8px;
-    background: rgba(255, 255, 255, 0.2);
-    color: #FFF;
-    font-size: 16px;
+.profile-settings .form-group input {
+  padding: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.2);
+  color: #FFF;
+  font-size: 16px;
 }
-
-.profile-settings input:focus {
-    outline: none;
-    border-color: rgba(255, 255, 255, 0.5);
+.profile-settings .form-group input:focus {
+  outline: none;
+  border-color: rgba(255, 255, 255, 0.5);
 }
-
-.save-button {
-    background: #3367d6;
-    color: #FFF;
-    border: none;
-    padding: 12px 24px;
-    border-radius: 8px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin-top: 10px;
+.profile-settings .save-button {
+  background: #3367d6;
+  color: #FFF;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
 }
-
-.save-button:hover {
-    background: #2851b3;
+.profile-settings .save-button:hover {
+  background: #2851b3;
 }
 
 @media screen and (max-width: 768px) {
-    .profile-container {
-        width: 90%;
-        margin: 20px auto;
-        padding: 20px;
-    }
-
-    .profile-header {
-        margin-bottom: 30px;
-    }
-
-    .profile-avatar {
-        width: 120px;
-        height: 120px;
-    }
-
-    .profile-header h1 {
-        font-size: 28px;
-    }
-
-    .user-email {
-        font-size: 16px;
-    }
-
-    .profile-section {
-        padding: 20px;
-        margin-bottom: 20px;
-    }
-
-    .profile-section h2 {
-        font-size: 22px;
-        margin-bottom: 15px;
-    }
-
-    .ticket-card {
-        flex-direction: column;
-        gap: 15px;
-        text-align: center;
-    }
-
-    .ticket-info h3 {
-        font-size: 18px;
-    }
-
-    .ticket-price {
-        font-size: 20px;
-    }
-
-    .profile-settings {
-        gap: 15px;
-    }
-
-    .profile-settings input {
-        font-size: 14px;
-    }
-
-    .save-button {
-        font-size: 14px;
-        padding: 10px 20px;
-    }
+  .profile-container {
+    width: 90%;
+    margin: 20px auto;
+    padding: 20px;
+  }
+  .profile-header {
+    margin-bottom: 30px;
+  }
+  .profile-header .profile-avatar {
+    width: 120px;
+    height: 120px;
+  }
+  .profile-header h1 {
+    font-size: 28px;
+  }
+  .profile-header .user-email {
+    font-size: 16px;
+  }
+  .profile-section {
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  .profile-section h2 {
+    font-size: 22px;
+    margin-bottom: 15px;
+  }
+  .tickets-list .ticket-card {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+  .tickets-list .ticket-card .ticket-info h3 {
+    font-size: 18px;
+  }
+  .tickets-list .ticket-card .ticket-price {
+    font-size: 20px;
+  }
+  .profile-settings {
+    gap: 15px;
+  }
+  .profile-settings input {
+    font-size: 14px;
+  }
+  .profile-settings .save-button {
+    font-size: 14px;
+    padding: 10px 20px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .profile-container {
+    width: 95%;
+    padding: 15px;
+  }
+  .profile-header .profile-avatar {
+    width: 100px;
+    height: 100px;
+  }
+  .profile-header h1 {
+    font-size: 24px;
+  }
+  .profile-header .user-email {
+    font-size: 14px;
+  }
+  .profile-section {
+    padding: 15px;
+  }
+  .profile-section h2 {
+    font-size: 20px;
+  }
+  .tickets-list .ticket-card .ticket-info h3 {
+    font-size: 16px;
+  }
+  .tickets-list .ticket-card .ticket-info p {
+    font-size: 14px;
+  }
+  .tickets-list .ticket-card .ticket-price {
+    font-size: 18px;
+  }
+  .profile-settings label {
+    font-size: 14px;
+  }
+  .profile-settings input {
+    font-size: 14px;
+  }
+  .profile-settings .save-button {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+}
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-between;
+  padding: 26px 52px;
+  background: rgba(255, 255, 255, 0.3);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  border-radius: 52px;
+  margin-bottom: 52px;
+  width: 90%;
+  max-width: 1300px;
+  position: relative;
+}
+.navbar .logo {
+  font-size: 42px;
+  font-weight: 700;
+  color: #FFF;
+}
+.navbar .nav-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 39px;
+}
+.navbar .nav-links a {
+  color: #FFF;
+  text-decoration: none;
+  font-size: 23px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+.navbar .nav-links a:hover {
+  text-decoration: underline;
+}
+.navbar .nav-links a.active {
+  font-weight: 700;
+}
+.navbar .menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  cursor: pointer;
+  padding: 10px;
+  position: relative;
+  z-index: 10000;
+}
+.navbar .menu-toggle span {
+  display: block;
+  width: 25px;
+  height: 2px;
+  background: #FFF;
+  transition: all 0.3s ease;
 }
 
-@media screen and (max-width: 480px) {
-    .profile-container {
-        width: 95%;
-        padding: 15px;
-    }
-
-    .profile-avatar {
-        width: 100px;
-        height: 100px;
-    }
-
-    .profile-header h1 {
-        font-size: 24px;
-    }
-
-    .user-email {
-        font-size: 14px;
-    }
-
-    .profile-section {
-        padding: 15px;
-    }
-
-    .profile-section h2 {
-        font-size: 20px;
-    }
-
-    .ticket-info h3 {
-        font-size: 16px;
-    }
-
-    .ticket-info p {
-        font-size: 14px;
-    }
-
-    .ticket-price {
-        font-size: 18px;
-    }
-
-    .profile-settings label {
-        font-size: 14px;
-    }
-
-    .profile-settings input {
-        padding: 8px;
-        font-size: 14px;
-    }
-
-    .save-button {
-        padding: 8px 16px;
-        font-size: 14px;
-    }
-} 
+@media screen and (max-width: 768px) {
+  .navbar {
+    padding: 15px 30px;
+    width: 100%;
+    border-radius: 0;
+    margin-bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+  }
+  .navbar .logo {
+    font-size: 32px;
+  }
+  .navbar .nav-links {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.95);
+    -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+    padding: 80px 20px;
+    flex-direction: column;
+    gap: 20px;
+    z-index: 9998;
+  }
+  .navbar .nav-links.active {
+    display: flex;
+  }
+  .navbar .nav-links a {
+    font-size: 24px;
+    text-align: center;
+  }
+  .navbar .menu-toggle {
+    display: flex;
+  }
+}/*# sourceMappingURL=profile.css.map */

@@ -1,0 +1,181 @@
+// Variables
+$primary-color: #ff7f50;
+$primary-hover: #ff6b3d;
+$text-color: #333;
+$text-secondary: #666;
+$white: #fff;
+$transparent-white: rgba(255, 255, 255, 0.9);
+$transparent-white-7: rgba(255, 255, 255, 0.7);
+$shadow-color: rgba(0, 0, 0, 0.1);
+
+// Mixins
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin blur-background {
+  backdrop-filter: blur(10px);
+}
+
+@mixin transition($property: all) {
+  transition: $property 0.3s ease;
+}
+
+// Global styles
+body {
+  min-height: 100vh;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  overflow-y: scroll;
+}
+
+// Tickets container
+.tickets-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+// Search section
+.search-section {
+  position: relative;
+  width: 100%;
+  height: 20vh;
+  background-image: url('../images/golden-gate.jpg');
+  position: relative;
+  top: 50px;
+  background-size: cover;
+  background-position: center;
+  @include flex-center;
+  border-radius: 20px;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}
+
+// Search box
+.search-box {
+  position: relative;
+  width: 80%;
+  max-width: 600px;
+  z-index: 1;
+
+  input {
+    width: 100%;
+    padding: 1rem 3rem 1rem 1rem;
+    border: none;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    background: $transparent-white;
+    @include blur-background;
+  }
+}
+
+// Search button
+.search-btn {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+
+  svg {
+    width: 24px;
+    height: 24px;
+    color: $text-secondary;
+  }
+}
+
+// Tickets options
+.tickets-options {
+  margin-top: 10rem;
+  padding: 2rem;
+  background-color: $transparent-white-7;
+  border-radius: 20px;
+  @include blur-background;
+  min-height: calc(100vh - 400px);
+
+  h2 {
+    color: $text-color;
+    margin-bottom: 2rem;
+    font-size: 1.5rem;
+  }
+}
+
+// Tickets grid
+.tickets-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+
+  @media (max-width: 1200px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (max-width: 900px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Ticket card
+.ticket-card {
+  background: $transparent-white;
+  padding: 1.5rem;
+  border-radius: 15px;
+  box-shadow: 0 4px 6px $shadow-color;
+  text-align: center;
+  @include transition(transform);
+  @include blur-background;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+
+  h3 {
+    color: $text-color;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+  }
+
+  .price {
+    color: $text-secondary;
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+  }
+
+  .book-btn {
+    background: $primary-color;
+    color: $white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1rem;
+    @include transition(background-color);
+
+    &:hover {
+      background: $primary-hover;
+    }
+  }
+} 
