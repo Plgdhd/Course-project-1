@@ -36,11 +36,9 @@ document.addEventListener('DOMContentLoaded', () => {
     function updateSlides(nextSlide) {
         slides[nextSlide].classList.add('active');
         slides[nextSlide].classList.remove('previous');
-        
-        // Затем анимируем текущий слайд влево
+    
         slides[currentSlide].classList.add('previous');
         slides[currentSlide].classList.remove('active');
-        
         currentSlide = nextSlide;
     }
 
@@ -54,17 +52,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const cardSetInterval = 10000;
 
     function updateCardSets(nextSet) {
-        // Скрываем текущий набор карточек
         cardSets[currentCardSet].classList.remove('active');
         dots[currentCardSet].classList.remove('active');
 
         currentCardSet = nextSet;
         
-        // Показываем новый набор карточек
         cardSets[currentCardSet].classList.add('active');
         dots[currentCardSet].classList.add('active');
 
-        // Прокручиваем к началу набора карточек
         if (window.innerWidth <= 768) {
             const destinations = document.querySelector('.destinations');
             destinations.scrollTo({
@@ -93,7 +88,6 @@ document.addEventListener('DOMContentLoaded', () => {
     let touchStartX = 0;
     let touchEndX = 0;
 
-    // Добавляем обработку свайпов для карточек на мобильных устройствах
     let touchStartY = 0;
     let touchEndY = 0;
 
@@ -113,7 +107,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const diffX = touchStartX - touchEndX;
         const diffY = touchStartY - touchEndY;
 
-        // Проверяем, что свайп больше по горизонтали, чем по вертикали
         if (Math.abs(diffX) > Math.abs(diffY)) {
             if (Math.abs(diffX) > swipeThreshold) {
                 if (diffX > 0) {
@@ -126,7 +119,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Мобильное меню
     const menuToggle = document.getElementById('menuToggle');
     const navLinks = document.querySelector('.nav-links');
     
@@ -136,7 +128,6 @@ document.addEventListener('DOMContentLoaded', () => {
             menuToggle.classList.toggle('active');
         });
 
-        // Закрываем меню при клике на ссылку
         navLinks.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
                 navLinks.classList.remove('active');

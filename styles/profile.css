@@ -149,7 +149,6 @@ body{
     background: #2851b3;
 }
 
-/* Медиа-запросы для адаптивности */
 @media screen and (max-width: 768px) {
     .profile-container {
         width: 90%;

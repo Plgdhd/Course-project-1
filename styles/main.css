@@ -6,7 +6,6 @@
 }
 
 body {
-    background-image: url(../images/fudziyama.jpeg);
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -425,13 +424,13 @@ main {
         top: 60px;
         left: 0;
         width: 100%;
-        background: rgba(255, 255, 255, 0.3);
+        background: rgba(0, 0, 0, 0.3);
         backdrop-filter: blur(10px);
         padding: 20px;
         flex-direction: column;
         align-items: center;
         gap: 15px;
-        z-index: 1000;
+        z-index: 9999;
     }
 
     .nav-links.active {
