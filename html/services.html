@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Belines - О нас</title>
+    <title>Belines - Услуги</title>
     <link rel="stylesheet" href="../styles/airlines.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
@@ -19,8 +19,8 @@
         <div class="nav-links">
             <a href="airlines.html">Главная</a>
             <a href="flights.html">Рейсы</a>
-            <a href="services.html">Услуги</a>
-            <a href="about.html" class="active">О нас</a>
+            <a href="services.html" class="active">Услуги</a>
+            <a href="about.html">О нас</a>
         </div>
         <div class="auth-buttons">
             <button class="login-btn" onclick="window.location.href='login.html'">Войти</button>
@@ -29,37 +29,41 @@
     </nav>
 
     <main class="main-content">
-        <section class="about-section">
-            <h1>О компании Belines</h1>
-            <div class="about-content">
-                <div class="about-text">
-                    <h2>Наша история</h2>
-                    <p>Belines - это современная авиакомпания, основанная в 2024 году. Мы стремимся предоставить нашим пассажирам максимальный комфорт и безопасность во время путешествий.</p>
-                    
-                    <h2>Наша миссия</h2>
-                    <p>Мы делаем воздушные путешествия доступными, комфортными и безопасными для каждого пассажира.</p>
-                    
-                    <h2>Наши ценности</h2>
+        <section class="services-section">
+            <h1>Наши услуги</h1>
+            <div class="services-grid">
+                <div class="service-card">
+                    <img src="../svg/search.svg" alt="Премиум класс">
+                    <h3>Премиум класс</h3>
+                    <p>Роскошные сиденья с полным раскладыванием</p>
                     <ul>
-                        <li>Безопасность - наш главный приоритет</li>
-                        <li>Качество обслуживания на высшем уровне</li>
-                        <li>Инновации в авиационной отрасли</li>
-                        <li>Забота об окружающей среде</li>
+                        <li>Персональный стюард</li>
+                        <li>Премиум меню</li>
+                        <li>Доступ в бизнес-зал</li>
                     </ul>
+                    <button class="book-btn">Подробнее</button>
                 </div>
-                <div class="about-stats">
-                    <div class="stat-card">
-                        <h3>50+</h3>
-                        <p>Направлений</p>
-                    </div>
-                    <div class="stat-card">
-                        <h3>1000+</h3>
-                        <p>Рейсов в месяц</p>
-                    </div>
-                    <div class="stat-card">
-                        <h3>100%</h3>
-                        <p>Безопасность</p>
-                    </div>
+                <div class="service-card">
+                    <img src="../svg/login.svg" alt="Бизнес класс">
+                    <h3>Бизнес класс</h3>
+                    <p>Комфортные сиденья для продуктивной работы</p>
+                    <ul>
+                        <li>Приоритетная регистрация</li>
+                        <li>Бизнес-меню</li>
+                        <li>Wi-Fi на борту</li>
+                    </ul>
+                    <button class="book-btn">Подробнее</button>
+                </div>
+                <div class="service-card">
+                    <img src="../svg/search.svg" alt="Эконом класс">
+                    <h3>Эконом класс</h3>
+                    <p>Удобные сиденья по доступной цене</p>
+                    <ul>
+                        <li>Базовое питание</li>
+                        <li>Развлекательная система</li>
+                        <li>Багаж включен</li>
+                    </ul>
+                    <button class="book-btn">Подробнее</button>
                 </div>
             </div>
         </section>

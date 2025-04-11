@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Belines - О нас</title>
+    <title>Belines - Вход</title>
     <link rel="stylesheet" href="../styles/airlines.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
@@ -20,49 +20,63 @@
             <a href="airlines.html">Главная</a>
             <a href="flights.html">Рейсы</a>
             <a href="services.html">Услуги</a>
-            <a href="about.html" class="active">О нас</a>
+            <a href="about.html">О нас</a>
         </div>
         <div class="auth-buttons">
-            <button class="login-btn" onclick="window.location.href='login.html'">Войти</button>
+            <button class="login-btn active" onclick="window.location.href='login.html'">Войти</button>
             <button class="signup-btn" onclick="window.location.href='register.html'">Регистрация</button>
         </div>
     </nav>
 
     <main class="main-content">
-        <section class="about-section">
-            <h1>О компании Belines</h1>
-            <div class="about-content">
-                <div class="about-text">
-                    <h2>Наша история</h2>
-                    <p>Belines - это современная авиакомпания, основанная в 2024 году. Мы стремимся предоставить нашим пассажирам максимальный комфорт и безопасность во время путешествий.</p>
+        <div class="auth-container">
+            <div class="auth-form">
+                <h1>Вход в аккаунт</h1>
+                <p class="auth-description">Добро пожаловать обратно! Войдите в свой аккаунт.</p>
+                
+                <form>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" placeholder="Введите ваш email" required>
+                    </div>
                     
-                    <h2>Наша миссия</h2>
-                    <p>Мы делаем воздушные путешествия доступными, комфортными и безопасными для каждого пассажира.</p>
-                    
-                    <h2>Наши ценности</h2>
-                    <ul>
-                        <li>Безопасность - наш главный приоритет</li>
-                        <li>Качество обслуживания на высшем уровне</li>
-                        <li>Инновации в авиационной отрасли</li>
-                        <li>Забота об окружающей среде</li>
-                    </ul>
+                    <div class="form-group">
+                        <label for="password">Пароль</label>
+                        <input type="password" id="password" placeholder="Введите ваш пароль" required>
+                        <a href="#" class="forgot-password">Забыли пароль?</a>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="checkbox-container">
+                            <input type="checkbox" id="remember">
+                            <span class="checkmark"></span>
+                            Запомнить меня
+                        </label>
+                    </div>
+
+                    <button type="submit" class="auth-submit">Войти</button>
+                </form>
+
+                <div class="auth-divider">
+                    <span>или</span>
                 </div>
-                <div class="about-stats">
-                    <div class="stat-card">
-                        <h3>50+</h3>
-                        <p>Направлений</p>
-                    </div>
-                    <div class="stat-card">
-                        <h3>1000+</h3>
-                        <p>Рейсов в месяц</p>
-                    </div>
-                    <div class="stat-card">
-                        <h3>100%</h3>
-                        <p>Безопасность</p>
-                    </div>
+
+                <div class="social-auth">
+                    <button class="social-btn google">
+                        <img src="../svg/google.svg" alt="Google">
+                        Войти через Google
+                    </button>
+                    <button class="social-btn facebook">
+                        <img src="../svg/facebook.svg" alt="Facebook">
+                        Войти через Facebook
+                    </button>
                 </div>
+
+                <p class="auth-switch">
+                    Нет аккаунта? <a href="register.html">Зарегистрироваться</a>
+                </p>
             </div>
-        </section>
+        </div>
     </main>
 
     <footer class="footer">
