@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belines - Авиакомпания</title>
+    <link rel="stylesheet" href="../styles/airlines.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background-slideshow">
+        <div class="slide active" style="background-image: url('../images/losangeles.jpg')"></div>
+        <div class="slide" style="background-image: url('../images/honkongback.jpg')"></div>
+        <div class="slide" style="background-image: url('../images/dubai.jpg')"></div>
+    </div>
+
+    <nav class="navbar">
+        <div class="logo">Belines</div>
+        <div class="nav-links">
+            <a href="airlines.html" class="active">Главная</a>
+            <a href="flights.html">Рейсы</a>
+            <a href="services.html">Услуги</a>
+            <a href="about.html">О нас</a>
+        </div>
+        <div class="auth-buttons">
+            <button class="login-btn" onclick="window.location.href='login.html'">Войти</button>
+            <button class="signup-btn" onclick="window.location.href='register.html'">Регистрация</button>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <section class="hero">
+            <h1>Откройте мир с Belines</h1>
+            <p>Испытайте роскошь и комфорт в каждом путешествии</p>
+            <div class="search-box">
+                <div class="search-input">
+                    <input type="text" placeholder="Откуда">
+                    <input type="text" placeholder="Куда">
+                    <input type="date" placeholder="Дата вылета">
+                    <input type="date" placeholder="Дата возврата">
+                </div>
+                <button class="search-btn">Найти рейсы</button>
+            </div>
+        </section>
+
+        <section class="features">
+            <div class="feature-card">
+                <img src="../svg/search.svg" alt="Комфорт">
+                <h3>Премиум комфорт</h3>
+                <p>Испытайте роскошные сиденья и удобства</p>
+            </div>
+            <div class="feature-card">
+                <img src="../svg/login.svg" alt="Безопасность">
+                <h3>Безопасность прежде всего</h3>
+                <p>Ваша безопасность - наш главный приоритет</p>
+            </div>
+            <div class="feature-card">
+                <img src="../svg/search.svg" alt="Сервис">
+                <h3>Сервис 24/7</h3>
+                <p>Круглосуточная поддержка клиентов</p>
+            </div>
+        </section>
+
+        <section class="popular-destinations">
+            <h2>Популярные направления</h2>
+            <div class="destination-grid">
+                <div class="destination-card">
+                    <img src="../images/paris.jpg" alt="Париж">
+                    <h3>Париж</h3>
+                    <p>От 299€</p>
+                </div>
+                <div class="destination-card">
+                    <img src="../images/tokyo.webp" alt="Токио">
+                    <h3>Токио</h3>
+                    <p>От 499€</p>
+                </div>
+                <div class="destination-card">
+                    <img src="../images/newyork.webp" alt="Нью-Йорк">
+                    <h3>Нью-Йорк</h3>
+                    <p>От 399€</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>О Belines</h4>
+                <p>Ваш надежный партнер в авиаперевозках для безопасных и комфортных путешествий.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Быстрые ссылки</h4>
+                <a href="about.html">О нас</a>
+                <a href="contact.html">Контакты</a>
+                <a href="careers.html">Карьера</a>
+                <a href="terms.html">Условия использования</a>
+            </div>
+            <div class="footer-section">
+                <h4>Свяжитесь с нами</h4>
+                <p>Email: info@belines.com</p>
+                <p>Телефон: +375 (29) 123-4567</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Belines Airlines. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <script src="../scripts/airlines.js"></script>
+</body>
+</html> 

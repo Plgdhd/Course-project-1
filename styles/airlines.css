@@ -1,0 +1,818 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+html, body {
+  height: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  min-height: 100vh;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  color: #FFF;
+  background: #000;
+}
+
+.background-slideshow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-color: #FFF;
+}
+.background-slideshow .slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  background-size: cover;
+  background-position: center;
+  transform: translateX(100%);
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+.background-slideshow .slide.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+.background-slideshow .slide.previous {
+  transform: translateX(-100%);
+  opacity: 0.5;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-between;
+  padding: 26px 52px;
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+  border-radius: 52px;
+  margin-bottom: 52px;
+  width: 90%;
+  max-width: 1300px;
+  position: relative;
+  z-index: 1;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.navbar .logo {
+  font-size: 42px;
+  font-weight: 700;
+  color: #FFF;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+.navbar .nav-links {
+  display: flex;
+  gap: 32px;
+}
+.navbar .nav-links a {
+  color: #FFF;
+  text-decoration: none;
+  font-size: 18px;
+  transition: all 0.3s ease;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+.navbar .nav-links a:hover, .navbar .nav-links a.active {
+  color: #3367d6;
+}
+.navbar .auth-buttons {
+  display: flex;
+  gap: 16px;
+}
+.navbar .auth-buttons button {
+  padding: 12px 24px;
+  border-radius: 26px;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.navbar .auth-buttons button.login-btn {
+  background: transparent;
+  border: 2px solid #FFF;
+  color: #FFF;
+}
+.navbar .auth-buttons button.login-btn:hover {
+  background: #FFF;
+  color: #3367d6;
+}
+.navbar .auth-buttons button.signup-btn {
+  background: #3367d6;
+  color: #FFF;
+}
+.navbar .auth-buttons button.signup-btn:hover {
+  background: #2851b3;
+}
+
+.main-content {
+  flex: 1;
+  width: 90%;
+  max-width: 1300px;
+  margin-bottom: 0;
+  padding-bottom: 80px;
+  position: relative;
+  z-index: 1;
+}
+
+.hero {
+  text-align: center;
+  margin-bottom: 80px;
+}
+.hero h1 {
+  font-size: 64px;
+  margin-bottom: 24px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+.hero p {
+  font-size: 24px;
+  margin-bottom: 48px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+.hero .search-box {
+  background: rgba(255, 255, 255, 0.3);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  padding: 32px;
+  border-radius: 26px;
+  max-width: 800px;
+  margin: 0 auto;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.hero .search-box .search-input {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.hero .search-box .search-input input {
+  padding: 16px;
+  border: none;
+  border-radius: 13px;
+  background: #FFF;
+  font-size: 16px;
+  color: #333;
+}
+.hero .search-box .search-input input::-moz-placeholder {
+  color: #ddd;
+}
+.hero .search-box .search-input input::placeholder {
+  color: #ddd;
+}
+.hero .search-box .search-input input:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #3367d6;
+}
+.hero .search-box .search-btn {
+  width: 100%;
+  padding: 16px;
+  background: #3367d6;
+  color: #FFF;
+  border: none;
+  border-radius: 13px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.hero .search-box .search-btn:hover {
+  background: #2851b3;
+}
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-bottom: 80px;
+}
+.features .feature-card {
+  background: rgba(255, 255, 255, 0.3);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  padding: 32px;
+  border-radius: 26px;
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.features .feature-card:hover {
+  transform: translateY(-5px);
+}
+.features .feature-card img {
+  width: 64px;
+  height: 64px;
+  margin-bottom: 16px;
+  filter: brightness(0) invert(1);
+}
+.features .feature-card h3 {
+  font-size: 24px;
+  margin-bottom: 16px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+.features .feature-card p {
+  color: #ddd;
+}
+
+.popular-destinations h2 {
+  font-size: 42px;
+  margin-bottom: 32px;
+  text-align: center;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+.popular-destinations .destination-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+.popular-destinations .destination-grid .destination-card {
+  position: relative;
+  border-radius: 26px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.popular-destinations .destination-grid .destination-card:hover {
+  transform: scale(1.05);
+}
+.popular-destinations .destination-grid .destination-card img {
+  width: 100%;
+  height: 300px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.popular-destinations .destination-grid .destination-card h3 {
+  position: absolute;
+  bottom: 48px;
+  left: 24px;
+  font-size: 24px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+.popular-destinations .destination-grid .destination-card p {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  color: #ddd;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.footer {
+  width: 100%;
+  background: #1a1a1a;
+  padding: 80px 0 0;
+  margin-top: auto;
+  position: relative;
+  z-index: 1;
+}
+.footer .footer-content {
+  width: 90%;
+  max-width: 1300px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 48px;
+  margin-bottom: 48px;
+}
+.footer .footer-content .footer-section h4 {
+  font-size: 24px;
+  margin-bottom: 24px;
+  color: #FFF;
+  font-weight: 600;
+}
+.footer .footer-content .footer-section p, .footer .footer-content .footer-section a {
+  color: #a0a0a0;
+  margin-bottom: 12px;
+  display: block;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  line-height: 1.6;
+}
+.footer .footer-content .footer-section p:hover, .footer .footer-content .footer-section a:hover {
+  color: #FFF;
+}
+.footer .footer-bottom {
+  text-align: center;
+  padding: 32px;
+  background: #141414;
+  margin-top: 48px;
+}
+.footer .footer-bottom p {
+  color: #a0a0a0;
+}
+
+@media (max-width: 1024px) {
+  .features, .destination-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    gap: 24px;
+    padding: 24px;
+  }
+  .navbar .nav-links {
+    flex-direction: column;
+    text-align: center;
+  }
+  .hero h1 {
+    font-size: 42px;
+  }
+  .hero p {
+    font-size: 18px;
+  }
+  .hero .search-box .search-input {
+    grid-template-columns: 1fr;
+  }
+  .features, .destination-grid {
+    grid-template-columns: 1fr;
+  }
+  .footer-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+}
+.flights-section {
+  background: rgba(255, 255, 255, 0.3);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  padding: 40px;
+  border-radius: 26px;
+  margin-bottom: 80px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  color: #333;
+}
+.flights-section h1 {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 48px;
+  color: #3367d6;
+  font-weight: 700;
+}
+.flights-section .flights-filter {
+  background: #f8f9fa;
+  padding: 24px;
+  border-radius: 16px;
+  margin-bottom: 32px;
+  display: flex;
+  gap: 16px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+.flights-section .flights-filter input, .flights-section .flights-filter select {
+  padding: 14px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  background: #FFF;
+  font-size: 16px;
+  color: #333;
+  flex: 1;
+  transition: all 0.3s ease;
+}
+.flights-section .flights-filter input::-moz-placeholder, .flights-section .flights-filter select::-moz-placeholder {
+  color: #adb5bd;
+}
+.flights-section .flights-filter input::placeholder, .flights-section .flights-filter select::placeholder {
+  color: #adb5bd;
+}
+.flights-section .flights-filter input:focus, .flights-section .flights-filter select:focus {
+  outline: none;
+  border-color: #3367d6;
+  box-shadow: 0 0 0 3px rgba(51, 103, 214, 0.1);
+}
+.flights-section .flights-filter input option, .flights-section .flights-filter select option {
+  background: #FFF;
+  color: #333;
+}
+.flights-section .flights-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.flights-section .flights-list .flight-card {
+  padding: 24px;
+  border-radius: 13px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: transform 0.3s ease;
+}
+.flights-section .flights-list .flight-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+.flights-section .flights-list .flight-card .flight-info h3 {
+  font-size: 24px;
+  margin-bottom: 8px;
+  color: #333;
+  font-weight: 600;
+}
+.flights-section .flights-list .flight-card .flight-info p {
+  color: #6c757d;
+  margin-bottom: 4px;
+}
+.flights-section .flights-list .flight-card .flight-price {
+  text-align: right;
+}
+.flights-section .flights-list .flight-card .flight-price p {
+  font-size: 24px;
+  margin-bottom: 12px;
+  color: #3367d6;
+  font-weight: 600;
+}
+.flights-section .flights-list .flight-card .flight-price .book-btn {
+  padding: 8px 16px;
+  background: rgba(51, 103, 214, 0.8);
+  color: #FFF;
+  border: none;
+  border-radius: 13px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+.flights-section .flights-list .flight-card .flight-price .book-btn:hover {
+  background: rgba(40, 81, 179, 0.9);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.destinations-section {
+  display: none;
+}
+
+.services-section {
+  background: rgba(255, 255, 255, 0.3);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  padding: 40px;
+  border-radius: 26px;
+  margin-bottom: 80px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  color: #333;
+}
+.services-section h1 {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 48px;
+  color: #3367d6;
+  font-weight: 700;
+}
+.services-section .services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+.services-section .services-grid .service-card {
+  padding: 32px;
+  border-radius: 13px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+.services-section .services-grid .service-card:hover {
+  transform: translateY(-5px);
+}
+.services-section .services-grid .service-card img {
+  width: 72px;
+  height: 72px;
+  margin-bottom: 24px;
+}
+.services-section .services-grid .service-card h3 {
+  font-size: 24px;
+  margin-bottom: 16px;
+  color: #333;
+  font-weight: 600;
+}
+.services-section .services-grid .service-card p {
+  color: #6c757d;
+  margin-bottom: 24px;
+  line-height: 1.6;
+}
+.services-section .services-grid .service-card ul {
+  list-style: none;
+  margin-bottom: 24px;
+  text-align: left;
+}
+.services-section .services-grid .service-card ul li {
+  margin-bottom: 12px;
+  padding-left: 24px;
+  position: relative;
+}
+.services-section .services-grid .service-card ul li:before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #3367d6;
+}
+.services-section .services-grid .service-card .book-btn {
+  padding: 12px 24px;
+  background: #3367d6;
+  color: #FFF;
+  border: none;
+  border-radius: 13px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.services-section .services-grid .service-card .book-btn:hover {
+  background: #2851b3;
+}
+
+.about-section {
+  background: rgba(255, 255, 255, 0.3);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  padding: 40px;
+  border-radius: 26px;
+  margin-bottom: 80px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  color: #333;
+}
+.about-section h1 {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 48px;
+  color: #3367d6;
+  font-weight: 700;
+}
+.about-section .about-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 32px;
+}
+.about-section .about-content .about-text h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+  color: #333;
+  font-weight: 600;
+}
+.about-section .about-content .about-text p {
+  color: #6c757d;
+  margin-bottom: 24px;
+  line-height: 1.7;
+}
+.about-section .about-content .about-text ul {
+  list-style: none;
+  margin-bottom: 24px;
+}
+.about-section .about-content .about-text ul li {
+  margin-bottom: 12px;
+  padding-left: 24px;
+  position: relative;
+}
+.about-section .about-content .about-text ul li:before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #3367d6;
+}
+.about-section .about-content .about-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.about-section .about-content .about-stats .stat-card {
+  background: rgba(255, 255, 255, 0.3);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  padding: 24px;
+  border-radius: 13px;
+  text-align: center;
+}
+.about-section .about-content .about-stats .stat-card h3 {
+  font-size: 42px;
+  font-weight: 700;
+}
+.about-section .about-content .about-stats .stat-card p {
+  color: #6c757d;
+  font-size: 18px;
+}
+
+.flight-card, .service-card, .stat-card {
+  background: #FFF;
+  padding: 24px;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+.flight-card:hover, .service-card:hover, .stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.book-btn {
+  background: #3367d6;
+  color: #FFF;
+  border: none;
+  border-radius: 12px;
+  padding: 14px 28px;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(51, 103, 214, 0.2);
+}
+.book-btn:hover {
+  background: #2851b3;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(51, 103, 214, 0.3);
+}
+
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 200px);
+  padding: 40px 20px;
+}
+
+.auth-form {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 40px;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 480px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.auth-form h1 {
+  color: #333;
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  text-align: center;
+}
+.auth-form .auth-description {
+  color: #666;
+  text-align: center;
+  margin-bottom: 32px;
+  font-size: 16px;
+}
+.auth-form .form-group {
+  margin-bottom: 24px;
+}
+.auth-form .form-group label {
+  display: block;
+  color: #333;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+.auth-form .form-group input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  background: #fff;
+}
+.auth-form .form-group input:focus {
+  outline: none;
+  border-color: #3367d6;
+  box-shadow: 0 0 0 3px rgba(51, 103, 214, 0.1);
+}
+.auth-form .form-group input::-moz-placeholder {
+  color: #999;
+}
+.auth-form .form-group input::placeholder {
+  color: #999;
+}
+.auth-form .form-group .forgot-password {
+  display: block;
+  text-align: right;
+  color: #3367d6;
+  font-size: 14px;
+  text-decoration: none;
+  margin-top: 8px;
+  transition: color 0.3s ease;
+}
+.auth-form .form-group .forgot-password:hover {
+  color: #2851b3;
+}
+.auth-form .checkbox-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  color: #666;
+  font-size: 14px;
+}
+.auth-form .checkbox-container input[type=checkbox] {
+  width: 18px;
+  height: 18px;
+  margin: 0;
+}
+.auth-form .auth-submit {
+  width: 100%;
+  padding: 14px;
+  background: #3367d6;
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-bottom: 24px;
+}
+.auth-form .auth-submit:hover {
+  background: #2851b3;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(51, 103, 214, 0.2);
+}
+.auth-form .auth-divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 24px 0;
+  color: #666;
+  font-size: 14px;
+}
+.auth-form .auth-divider::before, .auth-form .auth-divider::after {
+  content: "";
+  flex: 1;
+  border-bottom: 1px solid #ddd;
+}
+.auth-form .auth-divider span {
+  padding: 0 16px;
+}
+.auth-form .social-auth {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+.auth-form .social-auth .social-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  background: #fff;
+  color: #333;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.auth-form .social-auth .social-btn img {
+  width: 24px;
+  height: 24px;
+}
+.auth-form .social-auth .social-btn:hover {
+  background: #f8f9fa;
+  border-color: #ccc;
+}
+.auth-form .social-auth .social-btn.google:hover {
+  border-color: #ea4335;
+  color: #ea4335;
+}
+.auth-form .social-auth .social-btn.facebook:hover {
+  border-color: #1877f2;
+  color: #1877f2;
+}
+.auth-form .auth-switch {
+  text-align: center;
+  color: #666;
+  font-size: 14px;
+}
+.auth-form .auth-switch a {
+  color: #3367d6;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+.auth-form .auth-switch a:hover {
+  color: #2851b3;
+}
+
+@media (max-width: 480px) {
+  .auth-form {
+    padding: 24px;
+  }
+}/*# sourceMappingURL=airlines.css.map */
