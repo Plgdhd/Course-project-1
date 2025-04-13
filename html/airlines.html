@@ -32,15 +32,16 @@
         <section class="hero">
             <h1>Откройте мир с Belines</h1>
             <p>Испытайте роскошь и комфорт в каждом путешествии</p>
-            <div class="search-box">
+            <form class="search-box" action="flights.html" method="GET">
                 <div class="search-input">
-                    <input type="text" placeholder="Откуда">
-                    <input type="text" placeholder="Куда">
-                    <input type="date" placeholder="Дата вылета">
-                    <input type="date" placeholder="Дата возврата">
+                    <input type="text" name="from" placeholder="Откуда">
+                    <input type="text" name="to" placeholder="Куда">
+                    <input type="date" name="departureDate" placeholder="Дата вылета">
+                    <input type="date" name="returnDate" placeholder="Дата возврата">
                 </div>
-                <button class="search-btn">Найти рейсы</button>
-            </div>
+                <button class="search-btn" type="submit">Найти рейсы</button>
+            </form>
+            
         </section>
 
         <section class="features">
@@ -64,22 +65,22 @@
         <section class="popular-destinations">
             <h2>Популярные направления</h2>
             <div class="destination-grid">
-                <div class="destination-card">
+                <div class="destination-card" data-to="Париж">
                     <img src="../images/paris.jpg" alt="Париж">
                     <h3>Париж</h3>
                     <p>От 299€</p>
                 </div>
-                <div class="destination-card">
+                <div class="destination-card" data-to="Токио">
                     <img src="../images/tokyo.webp" alt="Токио">
                     <h3>Токио</h3>
                     <p>От 499€</p>
                 </div>
-                <div class="destination-card">
+                <div class="destination-card" data-to="Нью-Йорк">
                     <img src="../images/newyork.webp" alt="Нью-Йорк">
                     <h3>Нью-Йорк</h3>
                     <p>От 399€</p>
                 </div>
-            </div>
+            </div>            
         </section>
     </main>
 

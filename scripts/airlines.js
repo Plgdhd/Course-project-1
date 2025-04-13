@@ -20,3 +20,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     setInterval(updateSlides, 5000);
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const cards = document.querySelectorAll('.destination-card');
+
+    cards.forEach(card => {
+        card.addEventListener('click', () => {
+            const to = card.dataset.to;
+            if (to) {
+                const url = `flights.html?to=${encodeURIComponent(to)}`;
+                window.location.href = url;
+            }
+        });
+    });
+});
