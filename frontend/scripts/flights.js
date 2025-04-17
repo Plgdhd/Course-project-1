@@ -28,19 +28,30 @@ function renderFlights(flights) {
     flights.forEach(flight => {
         const flightCard = document.createElement('div');
         flightCard.className = 'flight-card';
+        const formattedDeparture = formatDateTime(flight.departure_date);
+        const formattedArrival = formatDateTime(flight.arrival_date);
         flightCard.innerHTML = `
             <div class="flight-info">
                 <h3>${flight.code}</h3>
                 <p>${flight.from} → ${flight.to}</p>
-                <p>${flight.time}</p>
+                 <p>${formattedDeparture} - ${formattedArrival}</p>
             </div>
             <div class="flight-price">
                 <p>от ${flight.price}€</p>
-                <button class="book-btn">Забронировать</button>
+                <button class="book-btn" data-code="${flight.code}">Забронировать</button>
             </div>
         `;
+        
+        // Добавляем обработчик клика для кнопки
+        const bookBtn = flightCard.querySelector('.book-btn');
+        bookBtn.addEventListener('click', () => {
+            // Перенаправляем на страницу карточки с параметром code
+            window.location.href = `flight-card.html?code=${flight.code}`;
+        });
+    
         flightsList.appendChild(flightCard);
     });
+    
 }
 
 function filterFlights() {
@@ -67,6 +78,16 @@ function applySearchParams() {
     if (params.has('departureDate')) {
         dateInput.value = params.get('departureDate');
     }
+}
+
+function formatDateTime(isoString) {
+    const date = new Date(isoString);
+    return date.toLocaleString('ru-RU', {
+        day: 'numeric',
+        month: 'long',
+        hour: '2-digit',
+        minute: '2-digit'
+    }).replace(',', '');
 }
 
 fromInput.addEventListener('input', filterFlights);
