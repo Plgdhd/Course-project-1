@@ -16,7 +16,7 @@ public class AppConfig {
         ds.setDriverClassName("org.postgresql.Driver");
         ds.setUrl("jdbc:postgresql://localhost:5432/belines");
         ds.setUsername("postgres");
-        ds.setPassword("postgres");
+        ds.setPassword("");
         return ds;
     }
 

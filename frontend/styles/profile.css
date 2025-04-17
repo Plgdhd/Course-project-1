@@ -1,0 +1,63 @@
+.profile-section {
+  background-color: rgb(255, 255, 255);
+  margin: 2rem auto;
+  padding: 2rem;
+  max-width: 1000px;
+  border-radius: 16px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+.profile-section h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+.profile-section .profile-info p {
+  margin: 0.5rem 0;
+  font-size: 1.1rem;
+  color: #444;
+}
+.profile-section .profile-info .profile-btn {
+  margin-top: 1rem;
+  padding: 0.6rem 1.2rem;
+  background-color: #1e90ff;
+  color: white;
+  font-weight: 500;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.profile-section .profile-info .profile-btn:hover {
+  background-color: #0d72d0;
+}
+.profile-section .booking-list {
+  display: grid;
+  gap: 1.5rem;
+}
+.profile-section .booking-list .booking-card {
+  background-color: #f7f9fc;
+  border-left: 6px solid #1e90ff;
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  transition: transform 0.2s ease;
+}
+.profile-section .booking-list .booking-card h3 {
+  margin: 0 0 0.5rem;
+  color: #222;
+  font-size: 1.3rem;
+}
+.profile-section .booking-list .booking-card p {
+  margin: 0.3rem 0;
+  color: #555;
+  font-size: 1rem;
+}
+.profile-section .booking-list .booking-card .profile-btn {
+  margin-top: 0.8rem;
+  background-color: #28a745;
+}
+.profile-section .booking-list .booking-card .profile-btn:hover {
+  background-color: #218838;
+}
+.profile-section .booking-list .booking-card:hover {
+  transform: translateY(-3px);
+}/*# sourceMappingURL=profile.css.map */

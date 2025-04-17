@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Профиль пользователя - Belines</title>
+    <link rel="stylesheet" href="../styles/airlines.css">
+    <link rel="stylesheet" href="../styles/profile.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background-slideshow">
+        <div class="slide active" style="background-image: url('../images/losangeles.jpg')"></div>
+        <div class="slide" style="background-image: url('../images/honkongback.jpg')"></div>
+        <div class="slide" style="background-image: url('../images/dubai.jpg')"></div>
+    </div>
+
+    <nav class="navbar">
+        <div class="logo">Belines</div>
+        <div class="nav-links">
+            <a href="airlines.html">Главная</a>
+            <a href="flights.html">Рейсы</a>
+            <a href="services.html">Услуги</a>
+            <a href="about.html">О нас</a>
+            <a href="profile.html" class="active">Профиль</a>
+        </div>
+        <div class="auth-buttons">
+            <button class="login-btn" onclick="window.location.href='login.html'">Выйти</button>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <section class="hero">
+            <h1>Добро пожаловать, Иван!</h1>
+            <p>Управляйте своими бронированиями, просматривайте историю и обновляйте личные данные</p>
+        </section>
+
+        <section class="profile-section">
+            <h2>Личная информация</h2>
+            <div class="profile-info">
+                <p><strong>Имя:</strong> Иван Иванов</p>
+                <p><strong>Email:</strong> ivan@example.com</p>
+                <p><strong>Телефон:</strong> +375 (29) 123-45-67</p>
+                <button class="profile-btn">Редактировать профиль</button>
+            </div>
+        </section>
+
+        <section class="profile-section">
+            <h2>Мои бронирования</h2>
+            <div class="booking-list">
+                <div class="booking-card">
+                    <h3>Минск → Париж</h3>
+                    <p>Дата вылета: 22.05.2025</p>
+                    <p>Статус: Подтверждено</p>
+                    <button class="profile-btn">Подробнее</button>
+                </div>
+                <div class="booking-card">
+                    <h3>Минск → Токио</h3>
+                    <p>Дата вылета: 10.06.2025</p>
+                    <p>Статус: В ожидании</p>
+                    <button class="profile-btn">Подробнее</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>О Belines</h4>
+                <p>Ваш надежный партнер в авиаперевозках для безопасных и комфортных путешествий.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Быстрые ссылки</h4>
+                <a href="../html/about.html">О нас</a>
+            </div>
+            <div class="footer-section">
+                <h4>Свяжитесь с нами</h4>
+                <p>Email: belines@gmail.com</p>
+                <p>Телефон: +375 (29) 299-72-11</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Belines Airlines. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <script src="../scripts/airlines.js"></script>
+</body>
+</html>
