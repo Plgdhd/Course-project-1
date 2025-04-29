@@ -13,6 +13,8 @@ public class User {
         this.flights = flights;
     }
 
+    public User(){}
+    
     private String email;
     private String name;
     private String password; 

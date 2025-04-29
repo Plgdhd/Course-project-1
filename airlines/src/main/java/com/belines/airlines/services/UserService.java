@@ -15,11 +15,13 @@ public class UserService {
     public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
-
     public void save(User user){
         userRepository.save(user);
     }
 
+    public User findByEmail(String email){
+        return userRepository.findByEmail(email);
+    }
     public boolean checkLogin(String email, String password) {
         return userRepository.checkLogin(email, password);
     }

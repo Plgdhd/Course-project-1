@@ -20,7 +20,6 @@
         <div class="nav-links">
             <a href="airlines.html" class="active">Главная</a>
             <a href="flights.html">Рейсы</a>
-            <a href="services.html">Услуги</a>
             <a href="about.html">О нас</a>
         </div>
         <div class="auth-buttons">
@@ -30,7 +29,6 @@
     </nav>
     <div class="main-content">
         <div class="flight-card">
-            <!-- Анимация загрузки -->
             <div class="loading-animation">
                 <div class="spinner"></div>
                 <div class="loading-text">Загрузка информации о рейсе</div>
@@ -117,19 +115,14 @@
     <script src="../scripts/flight-card.js"></script>
     <script src="../scripts/airlines.js"></script>
     <script>
-        // Скрипт для управления анимацией загрузки
         document.addEventListener('DOMContentLoaded', function() {
             const flightCard = document.querySelector('.flight-card');
             const loadingAnimation = document.querySelector('.loading-animation');
-            
-            // Показываем анимацию загрузки при загрузке страницы
-            flightCard.classList.add('loading');
-            
-            // Имитация загрузки данных (в реальном приложении это будет происходить после получения данных)
-            setTimeout(function() {
+                        flightCard.classList.add('loading');
+                        setTimeout(function() {
                 flightCard.classList.remove('loading');
                 loadingAnimation.style.display = 'none';
-            }, 2000); // Через 2 секунды скрываем анимацию
+            }, 2000); 
         });
     </script>
 </body>

@@ -29,6 +29,7 @@ public class FlightRepository {
         ));
     }
 
+    
     public Flight findByCode(String code){
         String sql = "SELECT * FROM flights WHERE code = ?";
         return jdbcTemplate.queryForObject(sql, new Object[]{code}, 
