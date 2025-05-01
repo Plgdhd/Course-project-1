@@ -49,8 +49,6 @@ async function loadFlightData(flightCode) {
             price: flightData.price,
             aircraft: flightData.aircraft || "Не указан"
         };
-
-        // Валидация
         if (!adaptedData.code || !adaptedData.from_city || !adaptedData.to_city) {
             throw new Error('Некорректные данные рейса');
         }

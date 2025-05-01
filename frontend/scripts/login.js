@@ -23,7 +23,8 @@ document.addEventListener('DOMContentLoaded', function () {
             const userData = await response.json();
 
             localStorage.setItem("user", JSON.stringify(userData));
-
+            localStorage.setItem("isLogin", "1");
+            console.log('Вход успешен, значение изменено на 1');
             window.location.href = 'profile.html';
         } catch (error) {
             console.error("Ошибка при входе:", error);

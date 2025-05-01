@@ -15,7 +15,7 @@
         <div class="slide" style="background-image: url('../images/honkongback.jpg')"></div>
         <div class="slide" style="background-image: url('../images/dubai.jpg')"></div>
     </div>
-    <nav class="navbar">
+    <nav class="navbar" id="navbar-container">
         <div class="logo">Belines</div>
         <div class="nav-links">
             <a href="airlines.html" class="active">Главная</a>
@@ -114,6 +114,8 @@
 
     <script src="../scripts/flight-card.js"></script>
     <script src="../scripts/airlines.js"></script>
+    <script src="../scripts/loginCheck.js"></script>
+    <script src="../scripts/exit.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const flightCard = document.querySelector('.flight-card');

@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     cards.forEach(card => {
         card.addEventListener('click', () => {
-            const to = card.dataset.to;e
+            const to = card.dataset.to;
             if (to) {
                 const url = `flights.html?to=${encodeURIComponent(to)}`;
                 window.location.href = url;
