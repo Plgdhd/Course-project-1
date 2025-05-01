@@ -6,11 +6,18 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import com.belines.airlines.models.Flight;
+import com.belines.airlines.models.User;
+import com.belines.airlines.services.UserService;
+
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.List;
 @Repository
 public class FlightRepository {
     private final JdbcTemplate jdbcTemplate;
+
     
+
     @Autowired
     public FlightRepository(JdbcTemplate jdbcTemplate){
         this.jdbcTemplate = jdbcTemplate;
@@ -29,6 +36,13 @@ public class FlightRepository {
         ));
     }
 
+    public List<Flight> getUserFlights(User user){
+        List<Flight> userFlights = new ArrayList<>();
+        for (int flightCode : user.getFlights()) {
+            userFlights.add(findByCode("BE-" + String.valueOf(flightCode)));
+        }
+        return userFlights;
+    }
     
     public Flight findByCode(String code){
         String sql = "SELECT * FROM flights WHERE code = ?";

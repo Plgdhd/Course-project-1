@@ -457,8 +457,8 @@ body {
   border-radius: 13px;
   cursor: pointer;
   transition: all 0.3s ease;
-  backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
 }
 .flights-section .flights-list .flight-card .flight-price .book-btn:hover {
   background: rgba(40, 81, 179, 0.9);

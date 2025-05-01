@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
     const userRaw = localStorage.getItem("user");
 
     if (!userRaw) {
@@ -7,6 +7,20 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     const user = JSON.parse(userRaw);
+    const userEmail = user.email;
+    let userFlights = [];
+
+    async function loadUserFlights() {
+        try {
+            const response = await fetch(`http://localhost:8080/flights/getUserFlights?email=${encodeURIComponent(userEmail)}`);
+            userFlights = await response.json();
+            console.log('Рейсы загружены: ', userFlights);
+        } catch (error) {
+            console.log('Ошибка загрузки рейсов пользователя', error);
+        }
+    }
+
+    await loadUserFlights();
 
     const greeting = document.querySelector("h1");
     if (greeting) {
@@ -23,18 +37,27 @@ document.addEventListener("DOMContentLoaded", () => {
         `;
     }
 
-    const bookingList = document.querySelector(".booking-list");
+    const bookingList = document.getElementById("flights-list");
     if (bookingList) {
         bookingList.innerHTML = "";
 
-        if (user.flights && user.flights.length > 0) {
-            user.flights.forEach(flight => {
+        if (userFlights && userFlights.length > 0) {
+            userFlights.forEach(flight => {
+                const formattedDeparture = formatDateTime(flight.departure_date);
+                const formattedArrival = formatDateTime(flight.arrival_date);
+
                 const card = document.createElement("div");
-                card.className = "booking-card";
+                card.className = "flight-card";
                 card.innerHTML = `
-                    <h3>Рейс: ${flight}</h3>
-                    <p>Дата вылета: —</p>
-                    <p>Статус: Ожидается</p>
+                    <div class="flight-info">
+                        <h3>${flight.code}</h3>
+                        <p>${flight.from} → ${flight.to}</p>
+                        <p>${formattedDeparture} - ${formattedArrival}</p>
+                    </div>
+                    <div class="flight-price">
+                        <p>от ${flight.price}€</p>
+                        <button class="book-btn" data-code="${flight.code}">Отменить</button>
+                    </div>
                 `;
                 bookingList.appendChild(card);
             });
@@ -43,3 +66,13 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 });
+
+function formatDateTime(isoString) {
+    const date = new Date(isoString);
+    return date.toLocaleString('ru-RU', {
+        day: 'numeric',
+        month: 'long',
+        hour: '2-digit',
+        minute: '2-digit'
+    }).replace(',', '');
+}
