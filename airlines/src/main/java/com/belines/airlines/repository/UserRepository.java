@@ -75,7 +75,34 @@ public class UserRepository {
         String dbPassword = jdbcTemplate.queryForObject(sql, new Object[] { email }, String.class);
         return dbPassword != null && dbPassword.equals(password);
     }
-
+    public boolean deleteFlightFromUser(String email, String code){
+        try{
+            String sqlSelect = "SELECT flights FROM users WHERE email = ?";
+            Integer[] currentFLights = jdbcTemplate.queryForObject(sqlSelect, new Object[]{email}, (rs,rowNum) -> {
+                Array sqlArray = rs.getArray("flights");
+                if(sqlArray != null){
+                    return(Integer[]) sqlArray.getArray();
+                }
+                else{
+                    return new Integer[0];
+                }
+                
+            });
+            Integer flightCode = Integer.parseInt(code);
+            List<Integer> updatedFlights = new ArrayList<>(Arrays.asList(currentFLights));
+            if(updatedFlights.contains(flightCode)){
+                updatedFlights.remove(flightCode);
+            }
+            Integer[] updatedArray = updatedFlights.toArray(new Integer[0]);
+            String sqlUpdate = "UPDATE users SET flights = ? WHERE email = ?";
+            jdbcTemplate.update(sqlUpdate, new Object[]{updatedArray, email});
+            return true;
+        }
+        catch(Exception e){
+            e.printStackTrace();
+            return false;
+        }
+    }
     public boolean addFlight(String email, String code){
         try {
             String sqlSelect = "SELECT flights FROM users WHERE email = ?";
@@ -86,6 +113,7 @@ public class UserRepository {
                 } else {
                     return new Integer[0]; 
                 }
+
             });
     
             Integer newFlight = Integer.parseInt(code);

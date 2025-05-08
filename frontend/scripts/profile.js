@@ -67,7 +67,37 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
     }
     document.querySelector('.book-btn')?.addEventListener('click', function () {
-        
+        const userStr = localStorage.getItem('user');
+        if(localStorage.getItem('isLogin') !=1){
+            console.error("Пользователь на авторизован");
+            return;
+        }
+        const code = this.dataset.code;
+        const user = JSON.parse(userStr);
+        const email = user.email;
+
+        fetch('http://localhost:8080/flights/deleteUserFlight', {
+            method: 'POST',
+            headers: {
+                'Content-Type':'application/json'
+            },
+            body: JSON.stringify({
+                email: email,
+                flightcode: code
+            })
+        })
+        .then(response => {
+            if(!response.ok) throw new Error("failed to delete in front");
+        })
+        .then(data => {
+            console.log("Рейс успешно добавлен:", data);
+            location.reload();
+        })
+        .catch(error => {
+            console.error("Произошла ошибка:", error);
+        });
+
+
     });
 });
 

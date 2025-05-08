@@ -25,7 +25,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 @RestController
 @CrossOrigin(origins = "*")
 public class FlightsController {
-    
+     
     @Autowired
     private UserRepository userRepository;
     @Autowired
@@ -37,7 +37,7 @@ public class FlightsController {
     }
     
     @PostMapping("/flights/addUserFlight")
-    public ResponseEntity<String> postMethodName(@RequestBody Map<String, Object> json) {
+    public ResponseEntity<String> addFlightToUser(@RequestBody Map<String, Object> json) {
         String email = (String) json.get("email");
         String code = (String) json.get("flightCode");
 
@@ -45,7 +45,16 @@ public class FlightsController {
         if(userRepository.addFlight(email, fixedCode)) return ResponseEntity.ok().body("added successfully");
         return ResponseEntity.badRequest().body("failed to add flights");
     }
-    
+
+    @PostMapping("/flights/deleteUserFlight")
+    public ResponseEntity<String>  deleteFlightFromUser(@RequestBody Map<String, Object> json){
+        String email = (String)json.get("email");
+        String code = (String) json.get("flightcode");
+
+        String fixedCode = code.replace("BE-", "");
+        if(userRepository.deleteFlightFromUser(email, fixedCode)) return ResponseEntity.ok().body("deleted successfully");
+        return ResponseEntity.badRequest().body("failed to delete flight");
+    }
     @GetMapping("/flights/getUserFlights")
     public ResponseEntity<?> getUserFlights(@RequestParam(required = false) String email){
         if(email == null){
