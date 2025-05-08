@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         try {
             const response = await fetch(`http://localhost:8080/flights/getUserFlights?email=${encodeURIComponent(userEmail)}`);
             userFlights = await response.json();
+            localStorage.setItem('userFlights', JSON.stringify(userFlights));
             console.log('Рейсы загружены: ', userFlights);
         } catch (error) {
             console.log('Ошибка загрузки рейсов пользователя', error);
@@ -65,6 +66,9 @@ document.addEventListener("DOMContentLoaded", async () => {
             bookingList.innerHTML = "<p>Нет бронирований.</p>";
         }
     }
+    document.querySelector('.book-btn')?.addEventListener('click', function () {
+        
+    });
 });
 
 function formatDateTime(isoString) {

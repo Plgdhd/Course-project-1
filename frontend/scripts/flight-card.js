@@ -20,7 +20,43 @@ document.addEventListener('DOMContentLoaded', function () {
     loadFlightData(flightCode);
 
     document.querySelector('.book-btn')?.addEventListener('click', function () {
-        bookFlight(flightCode);
+        const userStr = localStorage.getItem('user');
+        if (localStorage.getItem('isLogin') != 1) {
+            console.error("Пользователь не авторизован");
+            return;
+        }
+        const userFlights = JSON.parse(localStorage.getItem('userFlights'));
+        if (userFlights && userFlights.some(flight => flight.code === flightCode)) {
+            console.log('FlightCode уже есть');
+            const alertMessage = document.getElementById('alertMessage');
+            alertMessage.textContent = 'Этот рейс уже забронирован';
+            alertMessage.style.display = 'block';
+            return;
+        } else {
+            console.log('FlightCode не найден');
+        }
+        const user = JSON.parse(userStr);
+        const email = user.email;
+        fetch('http://localhost:8080/flights/addUserFlight', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                email: email,
+                flightCode: flightCode
+            })
+        })
+        .then(response => {
+            if (!response.ok) throw new Error("Ошибка при добавлении рейса");
+            window.location.href = "../html/profile.html";
+        })
+        .then(data => {
+            console.log("Рейс успешно добавлен:", data);
+        })
+        .catch(error => {
+            console.error("Произошла ошибка:", error);
+        });
     });
 });
 

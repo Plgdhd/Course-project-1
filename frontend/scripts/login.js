@@ -21,7 +21,6 @@ document.addEventListener('DOMContentLoaded', function () {
             }
 
             const userData = await response.json();
-
             localStorage.setItem("user", JSON.stringify(userData));
             localStorage.setItem("isLogin", "1");
             console.log('Вход успешен, значение изменено на 1');

@@ -540,6 +540,7 @@ body {
   border: none;
   border-radius: 13px;
   cursor: pointer;
+  text-decoration: none;
   transition: all 0.3s ease;
 }
 .services-section .services-grid .service-card .book-btn:hover {
