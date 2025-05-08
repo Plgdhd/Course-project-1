@@ -390,6 +390,11 @@ body {
   }
   .about-section {
     padding: 20px;
+    margin: 20px;
+  }
+  .about-section h1 {
+    font-size: 32px;
+    margin-bottom: 24px;
   }
   .about-section .about-content {
     grid-template-columns: 1fr;
@@ -398,33 +403,62 @@ body {
   .about-section .about-content .about-text h2 {
     font-size: 24px;
     margin-bottom: 16px;
+    text-align: center;
   }
   .about-section .about-content .about-text p {
-    font-size: 14px;
+    font-size: 15px;
     margin-bottom: 16px;
+    text-align: justify;
+    padding: 0 10px;
+  }
+  .about-section .about-content .about-text ul {
+    padding: 0 20px;
+  }
+  .about-section .about-content .about-text ul li {
+    font-size: 15px;
+    margin-bottom: 10px;
+    padding-left: 20px;
+  }
+  .about-section .about-content .about-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    padding: 0 10px;
   }
   .about-section .about-content .about-stats .stat-card {
     padding: 16px;
   }
   .about-section .about-content .about-stats .stat-card h3 {
-    font-size: 32px;
+    font-size: 28px;
   }
   .about-section .about-content .about-stats .stat-card p {
     font-size: 14px;
+  }
+  .flight-card .flight-details {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: stretch;
+  }
+  .flight-card .flight-details .flight-info-block,
+  .flight-card .flight-details .price-info {
+    width: 100%;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  .flight-card .flight-details .price-info {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .flight-card .flight-details .price-info .book-btn {
+    width: 100%;
+    margin-top: 12px;
   }
 }
 @media (max-width: 480px) {
   .auth-form {
     padding: 24px;
-  }
-  .footer .footer-content {
-    gap: 16px;
-  }
-  .footer .footer-content .footer-section h4 {
-    font-size: 18px;
-  }
-  .footer .footer-content .footer-section p, .footer .footer-content .footer-section a {
-    font-size: 13px;
   }
   .flights-section {
     padding: 12px;
@@ -434,11 +468,58 @@ body {
     gap: 8px;
   }
   .about-section {
-    padding: 12px;
+    padding: 15px;
+    margin: 10px;
+    border-radius: 16px;
   }
   .about-section h1 {
-    font-size: 28px;
-    margin-bottom: 24px;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  .about-section .about-content {
+    gap: 20px;
+  }
+  .about-section .about-content .about-text h2 {
+    font-size: 20px;
+    margin-bottom: 12px;
+  }
+  .about-section .about-content .about-text p {
+    font-size: 14px;
+    margin-bottom: 12px;
+    padding: 0 5px;
+  }
+  .about-section .about-content .about-text ul {
+    padding: 0 15px;
+  }
+  .about-section .about-content .about-text ul li {
+    font-size: 14px;
+    margin-bottom: 8px;
+    padding-left: 16px;
+  }
+  .about-section .about-content .about-stats {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 0 5px;
+  }
+  .about-section .about-content .about-stats .stat-card {
+    padding: 12px;
+  }
+  .about-section .about-content .about-stats .stat-card h3 {
+    font-size: 24px;
+  }
+  .about-section .about-content .about-stats .stat-card p {
+    font-size: 13px;
+  }
+  .flight-card .flight-details {
+    gap: 10px;
+  }
+  .flight-card .flight-details .flight-info-block,
+  .flight-card .flight-details .price-info {
+    padding: 10px 0;
+  }
+  .flight-card .flight-details .price-info .book-btn {
+    font-size: 15px;
+    padding: 12px 0;
   }
 }
 .flights-section {
@@ -633,10 +714,12 @@ body {
           backdrop-filter: blur(10px);
   padding: 40px;
   border-radius: 26px;
-  margin-bottom: 80px;
+  margin-bottom: 40px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
   background-color: white;
   color: #333;
+  width: 100%;
+  max-width: 1200px;
 }
 .about-section h1 {
   text-align: center;
@@ -648,38 +731,54 @@ body {
 .about-section .about-content {
   display: grid;
   grid-template-columns: 2fr 1fr;
-  gap: 32px;
+  gap: 40px;
 }
-.about-section .about-content .about-text h2 {
+.about-section .about-content .about-text .about-block {
+  margin-bottom: 30px;
+}
+.about-section .about-content .about-text .about-block:last-child {
+  margin-bottom: 0;
+}
+.about-section .about-content .about-text .about-block h2 {
   font-size: 32px;
   margin-bottom: 20px;
   color: #333;
   font-weight: 600;
 }
-.about-section .about-content .about-text p {
+.about-section .about-content .about-text .about-block p {
   color: #6c757d;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
   line-height: 1.7;
+  font-size: 16px;
 }
-.about-section .about-content .about-text ul {
+.about-section .about-content .about-text .about-block p:last-child {
+  margin-bottom: 0;
+}
+.about-section .about-content .about-text .about-block ul {
   list-style: none;
-  margin-bottom: 24px;
+  padding: 0;
 }
-.about-section .about-content .about-text ul li {
+.about-section .about-content .about-text .about-block ul li {
   margin-bottom: 12px;
   padding-left: 24px;
   position: relative;
+  color: #6c757d;
+  font-size: 16px;
+  line-height: 1.5;
 }
-.about-section .about-content .about-text ul li:before {
+.about-section .about-content .about-text .about-block ul li:before {
   content: "•";
   position: absolute;
   left: 0;
   color: #3367d6;
 }
+.about-section .about-content .about-text .about-block ul li:last-child {
+  margin-bottom: 0;
+}
 .about-section .about-content .about-stats {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 20px;
 }
 .about-section .about-content .about-stats .stat-card {
   background: rgba(255, 255, 255, 0.3);
@@ -688,10 +787,14 @@ body {
   padding: 24px;
   border-radius: 13px;
   text-align: center;
+  background: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 .about-section .about-content .about-stats .stat-card h3 {
   font-size: 42px;
   font-weight: 700;
+  color: #3367d6;
+  margin-bottom: 8px;
 }
 .about-section .about-content .about-stats .stat-card p {
   color: #6c757d;
@@ -908,5 +1011,174 @@ body {
 @media (max-width: 480px) {
   .auth-form {
     padding: 24px;
+  }
+}
+@media (max-width: 1024px) {
+  .about-section, .services-section {
+    padding: 30px;
+    margin: 20px;
+  }
+  .services-section .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+@media (max-width: 768px) {
+  .about-section {
+    padding: 25px;
+    margin: 15px;
+  }
+  .about-section h1 {
+    font-size: 36px;
+    margin-bottom: 30px;
+  }
+  .about-section .about-content {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .about-section .about-content .about-text .about-block {
+    margin-bottom: 25px;
+  }
+  .about-section .about-content .about-text .about-block h2 {
+    font-size: 28px;
+    margin-bottom: 15px;
+  }
+  .about-section .about-content .about-text .about-block p {
+    font-size: 15px;
+    margin-bottom: 15px;
+  }
+  .about-section .about-content .about-text .about-block ul li {
+    font-size: 15px;
+    margin-bottom: 10px;
+  }
+  .about-section .about-content .about-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+  .about-section .about-content .about-stats .stat-card {
+    padding: 20px;
+  }
+  .about-section .about-content .about-stats .stat-card h3 {
+    font-size: 32px;
+  }
+  .about-section .about-content .about-stats .stat-card p {
+    font-size: 16px;
+  }
+  .services-section {
+    padding: 25px;
+    margin: 15px;
+  }
+  .services-section h1 {
+    font-size: 36px;
+    margin-bottom: 30px;
+  }
+  .services-section .services-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .services-section .services-grid .service-card {
+    padding: 25px;
+  }
+  .services-section .services-grid .service-card .service-icon img {
+    width: 56px;
+    height: 56px;
+  }
+  .services-section .services-grid .service-card .service-content h3 {
+    font-size: 22px;
+    margin-bottom: 12px;
+  }
+  .services-section .services-grid .service-card .service-content p {
+    font-size: 15px;
+    margin-bottom: 15px;
+  }
+  .services-section .services-grid .service-card .service-content ul {
+    margin-bottom: 20px;
+  }
+  .services-section .services-grid .service-card .service-content ul li {
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+  .services-section .services-grid .service-card .service-content .book-btn {
+    padding: 10px 20px;
+    font-size: 15px;
+  }
+}
+@media (max-width: 480px) {
+  .about-section {
+    padding: 20px;
+    margin: 10px;
+  }
+  .about-section h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+  .about-section .about-content {
+    gap: 20px;
+  }
+  .about-section .about-content .about-text .about-block {
+    margin-bottom: 20px;
+  }
+  .about-section .about-content .about-text .about-block h2 {
+    font-size: 24px;
+    margin-bottom: 12px;
+  }
+  .about-section .about-content .about-text .about-block p {
+    font-size: 14px;
+    margin-bottom: 12px;
+  }
+  .about-section .about-content .about-text .about-block ul li {
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+  .about-section .about-content .about-stats {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .about-section .about-content .about-stats .stat-card {
+    padding: 15px;
+  }
+  .about-section .about-content .about-stats .stat-card h3 {
+    font-size: 28px;
+  }
+  .about-section .about-content .about-stats .stat-card p {
+    font-size: 14px;
+  }
+  .services-section {
+    padding: 20px;
+    margin: 10px;
+  }
+  .services-section h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+  .services-section .services-grid {
+    gap: 15px;
+  }
+  .services-section .services-grid .service-card {
+    padding: 20px;
+  }
+  .services-section .services-grid .service-card .service-icon img {
+    width: 48px;
+    height: 48px;
+  }
+  .services-section .services-grid .service-card .service-content h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  .services-section .services-grid .service-card .service-content p {
+    font-size: 14px;
+    margin-bottom: 12px;
+  }
+  .services-section .services-grid .service-card .service-content ul {
+    margin-bottom: 15px;
+  }
+  .services-section .services-grid .service-card .service-content ul li {
+    font-size: 13px;
+    margin-bottom: 6px;
+  }
+  .services-section .services-grid .service-card .service-content .book-btn {
+    padding: 8px 16px;
+    font-size: 14px;
   }
 }/*# sourceMappingURL=airlines.css.map */

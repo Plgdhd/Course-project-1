@@ -77,8 +77,8 @@
 
   .flight-code {
     font-size: 24px;
-    color: #333;
-    margin-bottom: 15px;
+    color: #ffffff;
+    //margin-bottom: 15px;
     font-weight: 700;
   }
 
@@ -86,16 +86,16 @@
     display: flex;
     align-items: center;
     gap: 15px;
-    font-size: 20px;
+    font-size: 30px;
     color: #444;
 
     .from-city,
     .to-city {
-      font-weight: 600;
+      font-weight: 700;
     }
 
     .flight-arrow {
-      color: #3367d6;
+      color: white;
       font-size: 24px;
     }
   }
@@ -233,3 +233,24 @@
     }
   }
 } 
+@media(max-width: 490px){
+  .flight-route {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    font-size: 15px;
+    color: #444;
+
+    .from-city,
+    .to-city {
+      font-weight: 400;
+    }
+
+    .flight-arrow {
+      color: white;
+      font-size: 24px;
+    }
+  }
+
+}

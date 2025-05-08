@@ -463,6 +463,13 @@ body {
 
   .about-section {
     padding: 20px;
+    margin: 20px;
+    
+    h1 {
+      font-size: 32px;
+      margin-bottom: 24px;
+    }
+    
     .about-content {
       grid-template-columns: 1fr;
       gap: 24px;
@@ -471,22 +478,66 @@ body {
         h2 {
           font-size: 24px;
           margin-bottom: 16px;
+          text-align: center;
         }
+        
         p {
-          font-size: 14px;
+          font-size: 15px;
           margin-bottom: 16px;
+          text-align: justify;
+          padding: 0 10px;
+        }
+        
+        ul {
+          padding: 0 20px;
+          li {
+            font-size: 15px;
+            margin-bottom: 10px;
+            padding-left: 20px;
+          }
         }
       }
       
       .about-stats {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+        padding: 0 10px;
+        
         .stat-card {
           padding: 16px;
           h3 {
-            font-size: 32px;
+            font-size: 28px;
           }
           p {
             font-size: 14px;
           }
+        }
+      }
+    }
+  }
+
+  .flight-card {
+    .flight-details {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      align-items: stretch;
+
+      .flight-info-block,
+      .price-info {
+        width: 100%;
+        margin: 0;
+        box-sizing: border-box;
+      }
+
+      .price-info {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        .book-btn {
+          width: 100%;
+          margin-top: 12px;
         }
       }
     }
@@ -498,20 +549,6 @@ body {
     padding: 24px;
   }
 
-  .footer {
-    .footer-content {
-      gap: 16px;
-      .footer-section {
-        h4 {
-          font-size: 18px;
-        }
-        p, a {
-          font-size: 13px;
-        }
-      }
-    }
-  }
-
   .flights-section {
     padding: 12px;
     .flights-filter {
@@ -521,10 +558,71 @@ body {
   }
 
   .about-section {
-    padding: 12px;
+    padding: 15px;
+    margin: 10px;
+    border-radius: 16px;
+    
     h1 {
-      font-size: 28px;
-      margin-bottom: 24px;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+    
+    .about-content {
+      gap: 20px;
+      
+      .about-text {
+        h2 {
+          font-size: 20px;
+          margin-bottom: 12px;
+        }
+        
+        p {
+          font-size: 14px;
+          margin-bottom: 12px;
+          padding: 0 5px;
+        }
+        
+        ul {
+          padding: 0 15px;
+          li {
+            font-size: 14px;
+            margin-bottom: 8px;
+            padding-left: 16px;
+          }
+        }
+      }
+      
+      .about-stats {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        padding: 0 5px;
+        
+        .stat-card {
+          padding: 12px;
+          h3 {
+            font-size: 24px;
+          }
+          p {
+            font-size: 13px;
+          }
+        }
+      }
+    }
+  }
+
+  .flight-card {
+    .flight-details {
+      gap: 10px;
+      .flight-info-block,
+      .price-info {
+        padding: 10px 0;
+      }
+      .price-info {
+        .book-btn {
+          font-size: 15px;
+          padding: 12px 0;
+        }
+      }
     }
   }
 }
@@ -739,10 +837,12 @@ body {
   @include blur-background;
   padding: 40px;
   border-radius: 26px;
-  margin-bottom: 80px;
+  margin-bottom: 40px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
   background-color: white;
   color: $gray;
+  width: 100%;
+  max-width: 1200px;
 
   h1 {
     text-align: center;
@@ -755,36 +855,56 @@ body {
   .about-content {
     display: grid;
     grid-template-columns: 2fr 1fr;
-    gap: 32px;
+    gap: 40px;
 
     .about-text {
-      h2 {
-        font-size: 32px;
-        margin-bottom: 20px;
-        color: $gray;
-        font-weight: 600;
-      }
+      .about-block {
+        margin-bottom: 30px;
 
-      p {
-        color: #6c757d;
-        margin-bottom: 24px;
-        line-height: 1.7;
-      }
+        &:last-child {
+          margin-bottom: 0;
+        }
 
-      ul {
-        list-style: none;
-        margin-bottom: 24px;
+        h2 {
+          font-size: 32px;
+          margin-bottom: 20px;
+          color: $gray;
+          font-weight: 600;
+        }
 
-        li {
-          margin-bottom: 12px;
-          padding-left: 24px;
-          position: relative;
+        p {
+          color: #6c757d;
+          margin-bottom: 20px;
+          line-height: 1.7;
+          font-size: 16px;
 
-          &:before {
-            content: "•";
-            position: absolute;
-            left: 0;
-            color: $primary-color;
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+
+        ul {
+          list-style: none;
+          padding: 0;
+
+          li {
+            margin-bottom: 12px;
+            padding-left: 24px;
+            position: relative;
+            color: #6c757d;
+            font-size: 16px;
+            line-height: 1.5;
+
+            &:before {
+              content: "•";
+              position: absolute;
+              left: 0;
+              color: $primary-color;
+            }
+
+            &:last-child {
+              margin-bottom: 0;
+            }
           }
         }
       }
@@ -793,17 +913,21 @@ body {
     .about-stats {
       display: flex;
       flex-direction: column;
-      gap: 16px;
+      gap: 20px;
 
       .stat-card {
         @include blur-background;
         padding: 24px;
         border-radius: 13px;
         text-align: center;
+        background: white;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 
         h3 {
           font-size: 42px;
           font-weight: 700;
+          color: $primary-color;
+          margin-bottom: 8px;
         }
 
         p {
@@ -1048,5 +1172,226 @@ body {
 @media (max-width: 480px) {
   .auth-form {
     padding: 24px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .about-section, .services-section {
+    padding: 30px;
+    margin: 20px;
+  }
+
+  .services-section .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-section {
+    padding: 25px;
+    margin: 15px;
+
+    h1 {
+      font-size: 36px;
+      margin-bottom: 30px;
+    }
+
+    .about-content {
+      grid-template-columns: 1fr;
+      gap: 30px;
+
+      .about-text {
+        .about-block {
+          margin-bottom: 25px;
+
+          h2 {
+            font-size: 28px;
+            margin-bottom: 15px;
+          }
+
+          p {
+            font-size: 15px;
+            margin-bottom: 15px;
+          }
+
+          ul li {
+            font-size: 15px;
+            margin-bottom: 10px;
+          }
+        }
+      }
+
+      .about-stats {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+
+        .stat-card {
+          padding: 20px;
+
+          h3 {
+            font-size: 32px;
+          }
+
+          p {
+            font-size: 16px;
+          }
+        }
+      }
+    }
+  }
+
+  .services-section {
+    padding: 25px;
+    margin: 15px;
+
+    h1 {
+      font-size: 36px;
+      margin-bottom: 30px;
+    }
+
+    .services-grid {
+      grid-template-columns: 1fr;
+      gap: 20px;
+
+      .service-card {
+        padding: 25px;
+
+        .service-icon img {
+          width: 56px;
+          height: 56px;
+        }
+
+        .service-content {
+          h3 {
+            font-size: 22px;
+            margin-bottom: 12px;
+          }
+
+          p {
+            font-size: 15px;
+            margin-bottom: 15px;
+          }
+
+          ul {
+            margin-bottom: 20px;
+
+            li {
+              font-size: 14px;
+              margin-bottom: 8px;
+            }
+          }
+
+          .book-btn {
+            padding: 10px 20px;
+            font-size: 15px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .about-section {
+    padding: 20px;
+    margin: 10px;
+
+    h1 {
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+
+    .about-content {
+      gap: 20px;
+
+      .about-text {
+        .about-block {
+          margin-bottom: 20px;
+
+          h2 {
+            font-size: 24px;
+            margin-bottom: 12px;
+          }
+
+          p {
+            font-size: 14px;
+            margin-bottom: 12px;
+          }
+
+          ul li {
+            font-size: 14px;
+            margin-bottom: 8px;
+          }
+        }
+      }
+
+      .about-stats {
+        grid-template-columns: 1fr;
+        gap: 12px;
+
+        .stat-card {
+          padding: 15px;
+
+          h3 {
+            font-size: 28px;
+          }
+
+          p {
+            font-size: 14px;
+          }
+        }
+      }
+    }
+  }
+
+  .services-section {
+    padding: 20px;
+    margin: 10px;
+
+    h1 {
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+
+    .services-grid {
+      gap: 15px;
+
+      .service-card {
+        padding: 20px;
+
+        .service-icon img {
+          width: 48px;
+          height: 48px;
+        }
+
+        .service-content {
+          h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+          }
+
+          p {
+            font-size: 14px;
+            margin-bottom: 12px;
+          }
+
+          ul {
+            margin-bottom: 15px;
+
+            li {
+              font-size: 13px;
+              margin-bottom: 6px;
+            }
+          }
+
+          .book-btn {
+            padding: 8px 16px;
+            font-size: 14px;
+          }
+        }
+      }
+    }
   }
 } 
