@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         try {
-            const response = await fetch('http://localhost:8080/auth/register', {
+            const response = await fetch('https://course-project-1-production-ad8a.up.railway.app/auth/register', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

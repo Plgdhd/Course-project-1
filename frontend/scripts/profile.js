@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     async function loadUserFlights() {
         try {
-            const response = await fetch(`http://localhost:8080/flights/getUserFlights?email=${encodeURIComponent(userEmail)}`);
+            const response = await fetch(`https://course-project-1-production-ad8a.up.railway.app/flights/getUserFlights?email=${encodeURIComponent(userEmail)}`);
             userFlights = await response.json();
             localStorage.setItem('userFlights', JSON.stringify(userFlights));
             console.log('Рейсы загружены: ', userFlights);
@@ -76,7 +76,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         const user = JSON.parse(userStr);
         const email = user.email;
 
-        fetch('http://localhost:8080/flights/deleteUserFlight', {
+        fetch('https://course-project-1-production-ad8a.up.railway.app/flights/deleteUserFlight', {
             method: 'POST',
             headers: {
                 'Content-Type':'application/json'

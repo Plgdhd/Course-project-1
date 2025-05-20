@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 async function loadFlights() {
     try {
-        const response = await fetch('http://localhost:8080/flights');
+        const response = await fetch('https://course-project-1-production-ad8a.up.railway.app/flights');
         allFlights = await response.json();
         console.log('Загруженные рейсы:', allFlights);
 
