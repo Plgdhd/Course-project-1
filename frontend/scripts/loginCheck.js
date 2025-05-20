@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     <a href="./profile.html"> Профиль </a>
                 </div>
                 <div class="auth-buttons">
-                    <button id="exit-btn" class="login-btn" onclick="window.location.href='login.html'">Выйти</button>
+                    <button id="exit-btn" class="./login-btn" onclick="window.location.href='./login.html'">Выйти</button>
                 </div>
         `;
     } else {
