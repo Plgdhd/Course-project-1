@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     <a href="../html/about.html">О нас</a>
                 </div>
                 <div class="auth-buttons">
-                    <button class="login-btn" onclick="window.location.href='./html/login.html'">Войти</button>
+                    <button class="login-btn" onclick="window.location.href='../html/login.html'">Войти</button>
                     <button class="signup-btn" onclick="window.location.href='../html/register.html'">Регистрация</button>
                 </div>
         `;
