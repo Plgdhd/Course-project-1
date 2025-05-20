@@ -76,7 +76,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         const user = JSON.parse(userStr);
         const email = user.email;
 
-        fetch('http://localhost:8080/flights/deleteUserFlight', {
+        fetch('https://course-project-1-production-ad8a.up.railway.app/flights/deleteUserFlight', {
             method: 'POST',
             headers: {
                 'Content-Type':'application/json'
