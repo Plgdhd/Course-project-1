@@ -4,27 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Belines - Авиакомпания</title>
-    <link rel="stylesheet" href="../styles/airlines.css">
+    <link rel="stylesheet" href="styles/airlines.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="background-slideshow">
-        <div class="slide active" style="background-image: url('../images/fudziyama.jpeg');"> </div>
-        <div class="slide active" style="background-image: url('../images/losangeles.jpg')"></div>
-        <div class="slide" style="background-image: url('../images/honkongback.jpg')"></div>
-        <div class="slide" style="background-image: url('../images/dubai.jpg')"></div>
+        <div class="slide active" style="background-image: url('images/fudziyama.jpeg');"> </div>
+        <div class="slide active" style="background-image: url('images/losangeles.jpg')"></div>
+        <div class="slide" style="background-image: url('images/honkongback.jpg')"></div>
+        <div class="slide" style="background-image: url('images/dubai.jpg')"></div>
     </div>
 
     <nav class="navbar" id="navbar-container">
         <div class="logo">Belines</div>
         <div class="nav-links">
             <a href="index.html" class="active">Главная</a>
-            <a href="flights.html">Рейсы</a>
-            <a href="about.html">О нас</a>
+            <a href="html/flights.html">Рейсы</a>
+            <a href="html/about.html">О нас</a>
         </div>
         <div class="auth-buttons">
-            <button class="login-btn" onclick="window.location.href='login.html'">Войти</button>
-            <button class="signup-btn" onclick="window.location.href='register.html'">Регистрация</button>
+            <button class="login-btn" onclick="window.location.href='html/login.html'">Войти</button>
+            <button class="signup-btn" onclick="window.location.href='html/register.html'">Регистрация</button>
         </div>
     </nav>
 
@@ -32,7 +32,7 @@
         <section class="hero">
             <h1>Откройте мир с Belines</h1>
             <p>Испытайте роскошь и комфорт в каждом путешествии</p>
-            <form class="search-box" action="flights.html" method="GET">
+            <form class="search-box" action="html/flights.html" method="GET">
                 <div class="search-input">
                     <input type="text" name="from" placeholder="Откуда">
                     <input type="text" name="to" placeholder="Куда">
@@ -46,17 +46,17 @@
 
         <section class="features">
             <div class="feature-card">
-                <img src="../svg/premium.svg" alt="Комфорт">
+                <img src="svg/premium.svg" alt="Комфорт">
                 <h3>Премиум комфорт</h3>
                 <p>Испытайте роскошные сиденья и удобства</p>
             </div>
             <div class="feature-card">
-                <img src="../svg/security.svg" alt="Безопасность">
+                <img src="svg/security.svg" alt="Безопасность">
                 <h3>Безопасность прежде всего</h3>
                 <p>Ваша безопасность - наш главный приоритет</p>
             </div>
             <div class="feature-card">
-                <img src="../svg/service.svg" alt="Сервис">
+                <img src="svg/service.svg" alt="Сервис">
                 <h3>Сервис 24/7</h3>
                 <p>Круглосуточная поддержка клиентов</p>
             </div>
@@ -66,17 +66,17 @@
             <h2>Популярные направления</h2>
             <div class="destination-grid">
                 <div class="destination-card" data-to="Париж">
-                    <img src="../images/paris.jpg" alt="Париж">
+                    <img src="images/paris.jpg" alt="Париж">
                     <h3>Париж</h3>
                     <p>От 299€</p>
                 </div>
                 <div class="destination-card" data-to="Токио">
-                    <img src="../images/tokyo.webp" alt="Токио">
+                    <img src="images/tokyo.webp" alt="Токио">
                     <h3>Токио</h3>
                     <p>От 499€</p>
                 </div>
                 <div class="destination-card" data-to="Нью-Йорк">
-                    <img src="../images/newyork.webp" alt="Нью-Йорк">
+                    <img src="images/newyork.webp" alt="Нью-Йорк">
                     <h3>Нью-Йорк</h3>
                     <p>От 399€</p>
                 </div>
@@ -92,7 +92,7 @@
             </div>
             <div class="footer-section">
                 <h4>Быстрые ссылки</h4>
-                <a href="../html/about.html">О нас</a>
+                <a href="html/about.html">О нас</a>
             </div>
             <div class="footer-section">
                 <h4>Свяжитесь с нами</h4>
@@ -105,8 +105,8 @@
         </div>
     </footer>
 
-    <script src="../scripts/airlines.js"></script>
-    <script src="../scripts/loginCheck.js"></script>
-    <script src="../scripts/exit.js"></script>
+    <script src="scripts/airlines.js"></script>
+    <script src="scripts/loginCheck.js"></script>
+    <script src="scripts/exit.js"></script>
 </body>
 </html> 

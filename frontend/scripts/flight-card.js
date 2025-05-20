@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
         const user = JSON.parse(userStr);
         const email = user.email;
-        fetch('https://course-project-1-production-ad8a.up.railway.app/flights/addUserFlight', {
+        fetch('http://localhost:8080/flights/addUserFlight', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -65,7 +65,7 @@ async function loadFlightData(flightCode) {
         const flightCard = document.querySelector('.flight-card');
         flightCard?.classList.add('loading');
 
-        const response = await fetch(`https://course-project-1-production-ad8a.up.railway.app/flights/getFlight?code=${flightCode}`);
+        const response = await fetch(`http://localhost:8080/flights/getFlight?code=${flightCode}`);
 
         if (!response.ok) {
             throw new Error(response.status === 404

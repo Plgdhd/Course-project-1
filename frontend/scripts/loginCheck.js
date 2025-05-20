@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
         navbarHtml = `
                 <div class="logo">Belines</div>
                 <div class="nav-links">
-                    <a href="airlines.html">Главная</a>
+                    <a href="../index.html">Главная</a>
                     <a href="flights.html">Рейсы</a>
                     <a href="about.html">О нас</a>
                     <a href="profile.html"> Профиль </a>
@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
         navbarHtml = `
                 <div class="logo">Belines</div>
                 <div class="nav-links">
-                    <a href="index.html" >Главная</a>
+                    <a href="../index.html" >Главная</a>
                     <a href="flights.html">Рейсы</a>
                     <a href="about.html">О нас</a>
                 </div>
