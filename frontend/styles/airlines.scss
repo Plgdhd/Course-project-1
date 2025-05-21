@@ -482,7 +482,7 @@ body {
         }
         
         p {
-          font-size: 15px;
+          font-size: 25px;
           margin-bottom: 16px;
           text-align: justify;
           padding: 0 10px;
@@ -491,7 +491,9 @@ body {
         ul {
           padding: 0 20px;
           li {
-            font-size: 15px;
+            color: $black;
+          
+            font-size: 25px;
             margin-bottom: 10px;
             padding-left: 20px;
           }
@@ -1211,12 +1213,12 @@ body {
           }
 
           p {
-            font-size: 15px;
+            font-size: 25px;
             margin-bottom: 15px;
           }
 
           ul li {
-            font-size: 15px;
+            font-size: 25px;
             margin-bottom: 10px;
           }
         }
@@ -1378,7 +1380,7 @@ body {
           }
 
           ul {
-            margin-bottom: 15px;
+            margin-bottom: 25px;
 
             li {
               font-size: 13px;

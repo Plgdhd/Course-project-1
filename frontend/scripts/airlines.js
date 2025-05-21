@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
         card.addEventListener('click', () => {
             const to = card.dataset.to;
             if (to) {
-                const url = `flights.html?to=${encodeURIComponent(to)}`;
+                const url = `./html/flights.html?to=${encodeURIComponent(to)}`;
                 window.location.href = url;
             }
         });
